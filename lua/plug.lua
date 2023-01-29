@@ -26,6 +26,10 @@ require("packer").startup({
             requires = { {'nvim-lua/plenary.nvim'} }
         }
         use { "lukas-reineke/indent-blankline.nvim" }
+
+        -- Git
+        use { "tpope/vim-fugitive" }
+
         -- File browser(s)
         -- Unless you are still migrating, remove the deprecated commands from v1.x
         -- vim.g.neo_tree_remove_legacy_commands = 1

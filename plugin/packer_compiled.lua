@@ -209,6 +209,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-endwise",
     url = "https://github.com/tpope/vim-endwise"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-gitgutter"] = {
     loaded = true,
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-gitgutter",
