@@ -1,4 +1,4 @@
--- Load All packer plugins
+-- Load packer plugins
 require('plug')
 
 -- Load different lua-files which contain Vim-configuration 
