@@ -24,6 +24,13 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     end
 })
 
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+    pattern = { "*.ts", "*.js" },
+    callback = function()
+        vim.cmd([[EslintFixAll]])
+    end
+})
+
 -- set background color on Vim launch 
 -- local bgcmd = "hi normal guibg=#0a0a0a"
 -- vim.api.nvim_create_autocmd({"VimEnter"}, {

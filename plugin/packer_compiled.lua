@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["ack.vim"] = {
-    loaded = true,
-    path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ack.vim",
-    url = "https://github.com/mileszs/ack.vim"
-  },
   bufexplorer = {
     loaded = true,
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufexplorer",
@@ -88,11 +83,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coq_nvim",
     url = "https://github.com/ms-jpq/coq_nvim"
-  },
-  ["ctrlp.vim"] = {
-    loaded = true,
-    path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ctrlp.vim",
-    url = "https://github.com/kien/ctrlp.vim"
   },
   ["goyo.vim"] = {
     loaded = true,
@@ -133,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nerdcommenter",
     url = "https://github.com/scrooloose/nerdcommenter"
+  },
+  nerdtree = {
+    loaded = true,
+    path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nerdtree",
+    url = "https://github.com/preservim/nerdtree"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -218,11 +213,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
-  },
-  ["vim-gutentags"] = {
-    loaded = true,
-    path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-gutentags",
-    url = "https://github.com/ludovicchabant/vim-gutentags"
   },
   ["vim-projectionist"] = {
     loaded = true,

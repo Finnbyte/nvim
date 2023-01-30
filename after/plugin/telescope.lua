@@ -14,7 +14,9 @@ require("telescope").setup {
 
 -- Handle builtins
 local builtin = require('telescope.builtin')
-map('n', '<leader>fr', builtin.oldfiles, {})
-map('n', '<leader>fg', function() builtin.grep_string({ search = vim.fn.input("Grep > "), regex = true }) end, {})
-map('n', '<leader>bb', builtin.buffers, {})
-map('n', '<leader>h', builtin.help_tags, {})
+map("n", "<leader>f.", builtin.find_files)
+map("n", "<leader>f,", builtin.git_files)
+map("n", "<leader>fr", builtin.oldfiles, {})
+map("n", "<leader>fg", function() builtin.grep_string({ search = vim.fn.input("Grep > "), regex = true }) end, {})
+map("n", "<leader>bb", builtin.buffers, {})
+map("n", "<leader>h", builtin.help_tags, {})

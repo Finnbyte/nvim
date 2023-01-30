@@ -16,6 +16,7 @@ require("mason-lspconfig").setup {
     ensure_installed = {
         -- "tsserver",
         "tsserver",
+        "eslint",
         "gopls",
         "sumneko_lua",
         "pyright",
