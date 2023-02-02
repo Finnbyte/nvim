@@ -13,4 +13,7 @@ require('nvim-treesitter.configs').setup {
     -- `false` will disable the whole extension
     enable = true,
   },
+
+  -- Uses Vim's built-in syntax highlighting AND treesitter, slows down editor so no thanks.
+  additional_vim_regex_highlighting = false,
 }
