@@ -9,14 +9,14 @@
 -- })
 
 -- Disable annoying commentting
-local annoying_comments_group = vim.api.nvim_create_augroup("Comments")
+local annoying_comments_group = vim.api.nvim_create_augroup("Comments", { clear = true })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
 	command = "set formatoptions-=cro",
     group = annoying_comments_group
 })
 
 -- Automatically add or remove new plugins when saving packer file
-local packer_group = vim.api.nvim_create_augroup("Packer")
+local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
 	-- pattern = { vim.fn.stdpath("config") .. "/lua/plug.lua" },
 	pattern = { "*/nvim/lua/plug.lua" },
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
 })
 
 -- Fix errors when saving a javascript/typescript file
-local eslint_fix_group = vim.api.nvim_create_augroup("Eslint")
+local eslint_fix_group = vim.api.nvim_create_augroup("Eslint", { clear = true })
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
     pattern = { "*.ts", "*.js" },
     group = eslint_fix_group,
