@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
     group = annoying_comments_group
 })
 
+-- Automatically add or remove new plugins when saving packer file
 local packer_group = vim.api.nvim_create_augroup("Packer")
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
 	-- pattern = { vim.fn.stdpath("config") .. "/lua/plug.lua" },
@@ -28,6 +29,7 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     end
 })
 
+-- Fix errors when saving a javascript/typescript file
 local eslint_fix_group = vim.api.nvim_create_augroup("Eslint")
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
     pattern = { "*.ts", "*.js" },
