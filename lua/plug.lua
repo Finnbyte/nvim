@@ -1,3 +1,18 @@
+-- Find out if Packer already installed.
+-- Clone from Github if not.
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
 require("packer").startup({
     function(use)
         -- Packer can manage it self
@@ -31,14 +46,7 @@ require("packer").startup({
         use { "tpope/vim-fugitive" }
 
         -- File browser(s)
-        use {
-            "nvim-neo-tree/neo-tree.nvim",
-            branch = "v2.x",
-            requires = {
-                "nvim-lua/plenary.nvim",
-                "MunifTanjim/nui.nvim"
-            }
-        }
+        use { "nvim-neo-tree/neo-tree.nvim", branch = "v2.x", requires = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" }}
         use { "nvim-telescope/telescope-file-browser.nvim" }
         use { 'nvim-tree/nvim-tree.lua' }
         use { 'preservim/nerdtree' }
@@ -63,11 +71,15 @@ require("packer").startup({
         -- Statusline
         use { 'nvim-lualine/lualine.nvim' }
 
-        use { "windwp/nvim-autopairs" }
+        use { "windwp/nvim-autopairs" } -- Pairings
         use { "vimwiki/vimwiki" } -- Personal wiki in Vim
         use { "easymotion/vim-easymotion" } -- Navigate characters
         use { "airblade/vim-gitgutter" } -- Show git stuff on the left
         use { "jlanzarotta/bufexplorer" } -- Switch between open buffers
+
+        if packer_bootstrap then
+            require("packer").sync()
+        end
     end,
         -- display packer dialouge in the center in a floating window
         config = {
