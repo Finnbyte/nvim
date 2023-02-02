@@ -32,3 +32,7 @@ require("rest-nvim").setup({
     custom_dynamic_variables = {},
     yank_dry_run = true,
 })
+
+map("v", "<leader>Rs", "<Plug>RestNvim")
+map("v", "<leader>Rp", "<Plug>RestNvimPreview")
+map("v", "<leader>Rr", "<Plug>RestNvimLast")
