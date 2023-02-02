@@ -40,7 +40,7 @@ require("packer").startup({
             requires = { {'nvim-lua/plenary.nvim'} }
         }
         use { "lukas-reineke/indent-blankline.nvim" }
-        use { "scrooloose/nerdcommenter" } -- Extreme power over comments 
+        use { "numToStr/Comment.nvim" } -- Extreme power over comments 
 
         -- Git
         use { "tpope/vim-fugitive" }

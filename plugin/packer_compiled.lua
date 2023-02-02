@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   bufexplorer = {
     loaded = true,
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufexplorer",
@@ -118,11 +123,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neovim",
     url = "https://github.com/rose-pine/neovim"
-  },
-  nerdcommenter = {
-    loaded = true,
-    path = "C:\\Users\\bytz\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nerdcommenter",
-    url = "https://github.com/scrooloose/nerdcommenter"
   },
   nerdtree = {
     loaded = true,
