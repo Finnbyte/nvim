@@ -23,12 +23,23 @@ require("packer").startup({
         use { "joshdick/onedark.vim" }
         use { "rose-pine/neovim" }
         use { "folke/tokyonight.nvim" }
-        -- use { "sheerun/vim-polyglot" } -- Syntax for loads of languages
 
         -- IDE features
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
-        use { 'ms-jpq/coq_nvim', branch = 'coq' } -- Fast completion
-        use { 'ms-jpq/coq.artifacts', branch = 'artifacts' } -- Fast completion
+        -- use { 'ms-jpq/coq_nvim', branch = 'coq' } -- Fast completion
+        -- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' } -- Fast completion
+
+        use { 'hrsh7th/cmp-nvim-lsp' }
+        use { 'hrsh7th/cmp-buffer' }
+        use { 'hrsh7th/cmp-path' }
+        use { 'hrsh7th/cmp-cmdline' }
+        use { 'hrsh7th/nvim-cmp' }
+
+        -- Snippets
+        use { 'hrsh7th/cmp-vsnip' }
+        use { 'hrsh7th/vim-vsnip' }
+
+
         use { "rest-nvim/rest.nvim" } -- REST requests inside vim
         use {
             "williamboman/mason-lspconfig.nvim", -- Bridges gap between mason and LSP
@@ -44,6 +55,8 @@ require("packer").startup({
 
         -- Git
         use { "tpope/vim-fugitive" }
+        use { "TimUntersberger/neogit" } -- Magit-style git status
+        use { "lewis6991/gitsigns.nvim" } -- Show git stuff on the left
 
         -- File browser(s)
         use { "nvim-neo-tree/neo-tree.nvim", branch = "v2.x", requires = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" }}
@@ -74,7 +87,6 @@ require("packer").startup({
         use { "windwp/nvim-autopairs" } -- Pairings
         use { "vimwiki/vimwiki" } -- Personal wiki in Vim
         use { "easymotion/vim-easymotion" } -- Navigate characters
-        use { "airblade/vim-gitgutter" } -- Show git stuff on the left
         use { "jlanzarotta/bufexplorer" } -- Switch between open buffers
 
         if packer_bootstrap then
