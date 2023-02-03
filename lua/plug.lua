@@ -55,6 +55,7 @@ require("packer").startup({
 
         -- Git
         use { "tpope/vim-fugitive" }
+        use { "kdheepak/lazygit.nvim" }
         use { "TimUntersberger/neogit" } -- Magit-style git status
         use { "lewis6991/gitsigns.nvim" } -- Show git stuff on the left
 
