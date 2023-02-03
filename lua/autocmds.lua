@@ -23,9 +23,7 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     group = packer_group,
 	callback = function()
         vim.cmd([[so %]])
-        vim.cmd([[PackerCompile]])
-        vim.cmd([[PackerClean]])
-        vim.cmd([[PackerInstall]])
+        vim.cmd([[PackerSync]])
     end
 })
 
