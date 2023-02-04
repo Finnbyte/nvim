@@ -18,17 +18,19 @@ require("packer").startup({
         -- Packer can manage it self
         use { "wbthomason/packer.nvim" }
 
+        -- Plugins I want only in a Linux environment
+        if vim.fn.has("linux") or vim.fn.has("wsl") then
+            use { "tribela/vim-transparent" } -- Transparent bg when using compositor
+        end
+
         -- Looks
-        use { "tribela/vim-transparent" } -- Transparent bg when using compositor
         use { "joshdick/onedark.vim" }
         use { "rose-pine/neovim" }
-        use { "folke/tokyonight.nvim" }
 
-        -- IDE features
+        -- Treesitter
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
-        -- use { 'ms-jpq/coq_nvim', branch = 'coq' } -- Fast completion
-        -- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' } -- Fast completion
 
+        -- LSP
         use { 'hrsh7th/cmp-nvim-lsp' }
         use { 'hrsh7th/cmp-buffer' }
         use { 'hrsh7th/cmp-path' }
@@ -38,7 +40,6 @@ require("packer").startup({
         -- Snippets
         use { 'hrsh7th/cmp-vsnip' }
         use { 'hrsh7th/vim-vsnip' }
-
 
         use { "rest-nvim/rest.nvim" } -- REST requests inside vim
         use {
@@ -56,14 +57,11 @@ require("packer").startup({
         -- Git
         use { "tpope/vim-fugitive" }
         use { "kdheepak/lazygit.nvim" }
-        use { "TimUntersberger/neogit" } -- Magit-style git status
         use { "lewis6991/gitsigns.nvim" } -- Show git stuff on the left
 
         -- File browser(s)
-        use { "nvim-neo-tree/neo-tree.nvim", branch = "v2.x", requires = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" }}
-        use { "nvim-telescope/telescope-file-browser.nvim" }
-        use { 'nvim-tree/nvim-tree.lua' }
         use { 'preservim/nerdtree' }
+        use { "tpope/vim-vinegar"}
 
         -- Which key
         use { "folke/which-key.nvim" }
@@ -76,7 +74,6 @@ require("packer").startup({
 
         -- Misc Tim Pope
         use { "tpope/vim-endwise" } -- Automatic ends (e.g endif) to conditions
-        use { "tpope/vim-projectionist" } -- Magic stuff
         use { "tpope/vim-surround" } -- Change surrounding quotes / parens easily
 
         -- Discord
