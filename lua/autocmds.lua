@@ -17,13 +17,14 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 
 -- Automatically add or remove new plugins when saving packer file
 local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
-	-- pattern = { vim.fn.stdpath("config") .. "/lua/plug.lua" },
-	pattern = { "*/nvim/lua/plug.lua" },
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = "**/nvim/lua/plug.lua",
     group = packer_group,
 	callback = function()
-        vim.cmd([[so %]])
-        vim.cmd([[PackerSync]])
+        vim.cmd.source("%")
+        vim.cmd.PackerCompile()
+        vim.cmd.PackerClean()
+        vim.cmd.PackerInstall()
     end
 })
 
@@ -33,6 +34,7 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     pattern = { "*.ts", "*.js" },
     group = eslint_fix_group,
     callback = function()
-        vim.cmd([[EslintFixAll]])
+        vim.cmd.EslintFixAll()
+        vim.cmd.write() -- Save changes again after fixed errors
     end
 })
