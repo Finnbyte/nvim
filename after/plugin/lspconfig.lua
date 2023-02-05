@@ -11,6 +11,9 @@ require("mason-lspconfig").setup {
     automatic_installation = true,
 }
 
+-- Diagnostics configuration
+vim.diagnostic.config({ signs = false })
+
 -- Mappings
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
