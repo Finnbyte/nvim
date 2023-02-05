@@ -4,10 +4,6 @@ local opt = vim.opt
 local g = vim.g
 local o = vim.o
 
--- Disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- Line numbers (basically do hybrid)
 opt.rnu = true
 opt.nu = true
