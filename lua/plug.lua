@@ -54,6 +54,9 @@ require("packer").startup({
         use { "lukas-reineke/indent-blankline.nvim" }
         use { "numToStr/Comment.nvim" } -- Extreme power over comments 
 
+        -- Enchanted motions/navigation
+        use { "ggandor/leap.nvim" }
+
         -- Git
         use { "tpope/vim-fugitive" }
         use { "kdheepak/lazygit.nvim" }
