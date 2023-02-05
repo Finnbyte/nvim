@@ -82,10 +82,11 @@ require("packer").startup({
         -- Statusline
         use { 'nvim-lualine/lualine.nvim' }
 
+        -- Autopair
         use { "windwp/nvim-autopairs" } -- Pairings
+
+        -- Notetaking
         use { "vimwiki/vimwiki" } -- Personal wiki in Vim
-        use { "easymotion/vim-easymotion" } -- Navigate characters
-        use { "jlanzarotta/bufexplorer" } -- Switch between open buffers
 
         if packer_bootstrap then
             require("packer").sync()
