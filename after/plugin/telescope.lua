@@ -30,7 +30,7 @@ local del_buf = function(prompt_bufnr)
     vim.api.nvim_buf_delete(selection.bufnr, { force = true })
 end
 
-map("n", "<leader>bb", function() builtin.buffers{
+map("n", "<leader><leader>", function() builtin.buffers{
     attach_mappings = function(prompt_bufnr , map)
         map('n', 'dd', function()
             del_buf(prompt_bufnr)
