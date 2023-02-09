@@ -59,6 +59,8 @@ opt.smartcase = true -- Ignore lowercase for the whole pattern
 opt.linebreak = true -- Wrap on word boundary
 opt.history=1000 -- Remember N lines in history
 
+opt.lazyredraw = true -- Enable lazy redrawing functionality
+
 -- Set shell on Windows to be powershell, better commands (rm/ls.. etc.)
 if fn.has("win64") then
     g.shell = fn.executable('pwsh') and 'pwsh' or 'powershell'
