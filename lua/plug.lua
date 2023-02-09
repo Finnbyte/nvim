@@ -61,6 +61,7 @@ require("packer").startup({
         use { "kdheepak/lazygit.nvim" }
 
         -- File browser(s)
+        use { 'preservim/nerdtree' }
         use { "tpope/vim-vinegar"}
 
         -- Which key
