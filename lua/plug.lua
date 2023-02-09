@@ -41,7 +41,7 @@ require("packer").startup({
         use { 'hrsh7th/cmp-vsnip' }
         use { 'hrsh7th/vim-vsnip' }
 
-        use { "rest-nvim/rest.nvim" } -- REST requests inside vim
+        use { "rest-nvim/rest.nvim", requires = { { "nvim-lua/plenary.nvim" } } } -- REST requests inside vim
         use {
             "williamboman/mason-lspconfig.nvim", -- Bridges gap between mason and LSP
             "williamboman/mason.nvim", -- Downloading language servers
@@ -58,12 +58,9 @@ require("packer").startup({
         use { "ggandor/leap.nvim" }
 
         -- Git
-        use { "tpope/vim-fugitive" }
         use { "kdheepak/lazygit.nvim" }
-        use { "lewis6991/gitsigns.nvim" } -- Show git stuff on the left
 
         -- File browser(s)
-        use { 'preservim/nerdtree' }
         use { "tpope/vim-vinegar"}
 
         -- Which key
@@ -76,7 +73,6 @@ require("packer").startup({
         use { "junegunn/goyo.vim" }
 
         -- Misc Tim Pope
-        use { "tpope/vim-endwise" } -- Automatic ends (e.g endif) to conditions
         use { "tpope/vim-surround" } -- Change surrounding quotes / parens easily
 
         -- Discord
