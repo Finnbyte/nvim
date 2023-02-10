@@ -74,7 +74,7 @@ require("packer").startup({
         use { "junegunn/goyo.vim" }
 
         -- Misc Tim Pope
-        use { "tpope/vim-surround" } -- Change surrounding quotes / parens easily
+        use { "kylechui/nvim-surround" } -- Change surrounding quotes / parens easily
 
         -- Discord
         use { "andweeb/presence.nvim" } -- Discord stuff :P
