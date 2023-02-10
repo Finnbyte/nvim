@@ -1,6 +1,7 @@
-map("n", "<leader>gs", vim.cmd.Git) -- Fugitive
+-- Git signs
+require('gitsigns').setup()
 
--- Lazygit 
+-- Lazygit
 vim.g.lazygit_floating_window_winblend = 1 -- transparency of floating window
 vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
 vim.g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'} -- customize lazygit popup window corner characters
