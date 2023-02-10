@@ -20,9 +20,10 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 
 -- Load packer plugins
-require('plug')
+require("plug")
 
 -- Load different lua-files which contain Vim-configuration 
-require('autocmds')
-require('keymap')
-require('options')
+require("functions")
+require("keymap")
+require("options")
+require("autocmds")
