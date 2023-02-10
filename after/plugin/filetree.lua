@@ -4,6 +4,12 @@ local nerdtree = function()
     map("n", "<leader>pl", function() vim.cmd.NERDTree(vim.fn.stdpath("data")) end)
 end
 
+local netrw = function()
+    map("n", "<leader>.", vim.cmd.Ex)
+    map("n", "<leader>cf", function() vim.cmd.Ex(vim.fn.stdpath("config")) end)
+    map("n", "<leader>pl", function() vim.cmd.Ex(vim.fn.stdpath("data")) end)
+end
+
 local neotree = function()
     --vim.cmd([[let g:neo_tree_remove_legacy_commands=1]])
 
@@ -285,7 +291,8 @@ local nvim_tree = function()
 
 end
 
-nerdtree()
+netrw()
+-- nerdtree()
 -- nvim_tree()
 -- telescope_file_browser()
 -- neotree()
