@@ -26,6 +26,7 @@ require("packer").startup({
         -- Looks
         use { "joshdick/onedark.vim" }
         use { "rose-pine/neovim" }
+        use { "catppuccin/nvim", as = "catppuccin"}
 
         -- Treesitter
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
@@ -36,6 +37,9 @@ require("packer").startup({
         use { "hrsh7th/cmp-path" }
         use { "hrsh7th/cmp-cmdline" }
         use { "hrsh7th/nvim-cmp" }
+
+        -- Mini.nvim
+        use { 'echasnovski/mini.nvim' }
 
         -- Snippets
         use {  "L3MON4D3/LuaSnip" }
