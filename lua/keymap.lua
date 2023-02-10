@@ -16,11 +16,11 @@ map("n", "0", "^")
 map("n", "^", "0")
 
 -- Switch windows
-map("n", "<C-c>", "<C-w>c")
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
-map("n", "<C-l>", "<C-w>l")
+-- map("n", "<C-c>", "<C-w>c")
+-- map("n", "<C-h>", "<C-w>h")
+-- map("n", "<C-j>", "<C-w>j")
+-- map("n", "<C-k>", "<C-w>k")
+-- map("n", "<C-l>", "<C-w>l")
 
 -- Disable highlighted entries
 map("n", "<F2>", ":nohlsearch<CR>")
