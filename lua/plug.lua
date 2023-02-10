@@ -59,6 +59,7 @@ require("packer").startup({
         use { "ggandor/leap.nvim" }
 
         -- Git
+        use { "tpope/vim-fugitive"}
         use { "kdheepak/lazygit.nvim" }
 
         -- File browser(s)
@@ -66,9 +67,6 @@ require("packer").startup({
 
         -- Which key
         use { "folke/which-key.nvim" }
-
-        -- Dashboard
-        use { "mhinz/vim-startify" }
 
         -- Writing
         use { "junegunn/goyo.vim" }
