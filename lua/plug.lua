@@ -2,9 +2,9 @@
 -- Clone from Github if not.
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -31,15 +31,16 @@ require("packer").startup({
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
 
         -- LSP
-        use { 'hrsh7th/cmp-nvim-lsp' }
-        use { 'hrsh7th/cmp-buffer' }
-        use { 'hrsh7th/cmp-path' }
-        use { 'hrsh7th/cmp-cmdline' }
-        use { 'hrsh7th/nvim-cmp' }
+        use { "hrsh7th/cmp-nvim-lsp" }
+        use { "hrsh7th/cmp-buffer" }
+        use { "hrsh7th/cmp-path" }
+        use { "hrsh7th/cmp-cmdline" }
+        use { "hrsh7th/nvim-cmp" }
 
         -- Snippets
-        use { 'hrsh7th/cmp-vsnip' }
-        use { 'hrsh7th/vim-vsnip' }
+        use {  "L3MON4D3/LuaSnip" }
+        use { "saadparwaiz1/cmp_luasnip" }
+        use { "rafamadriz/friendly-snippets" }
 
         use { "rest-nvim/rest.nvim", requires = { { "nvim-lua/plenary.nvim" } } } -- REST requests inside vim
         use {
@@ -47,9 +48,9 @@ require("packer").startup({
             "williamboman/mason.nvim", -- Downloading language servers
             "neovim/nvim-lspconfig" } -- LSP
         use {
-            'nvim-telescope/telescope.nvim', tag = '0.1.0',
-            -- or                            , branch = '0.1.x',
-            requires = { {'nvim-lua/plenary.nvim'} }
+            "nvim-telescope/telescope.nvim", tag = "0.1.0",
+            -- or                            , branch = "0.1.x",
+            requires = { {"nvim-lua/plenary.nvim"} }
         }
         use { "lukas-reineke/indent-blankline.nvim" }
         use { "numToStr/Comment.nvim" } -- Extreme power over comments 
@@ -79,7 +80,7 @@ require("packer").startup({
         use { "andweeb/presence.nvim" } -- Discord stuff :P
 
         -- Statusline
-        use { 'nvim-lualine/lualine.nvim' }
+        use { "nvim-lualine/lualine.nvim" }
 
         -- Autopair
         use { "windwp/nvim-autopairs" } -- Pairings
