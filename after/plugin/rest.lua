@@ -33,6 +33,6 @@ require("rest-nvim").setup({
     yank_dry_run = true,
 })
 
-map("v", "<leader>Rs", "<Plug>RestNvim")
-map("v", "<leader>Rp", "<Plug>RestNvimPreview")
-map("v", "<leader>Rr", "<Plug>RestNvimLast")
+map("n", "<leader>Rs", "<Plug>RestNvim")
+map("n", "<leader>Rp", "<Plug>RestNvimPreview")
+map("n", "<leader>Rr", "<Plug>RestNvimLast")
