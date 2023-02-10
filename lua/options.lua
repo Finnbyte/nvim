@@ -13,7 +13,7 @@ opt.nu = true
 -- cmd("hi Normal ctermbg=none guibg=none")
 opt.termguicolors = true -- Enable 24-bit RGB colors
 o.cursorline = true 	-- highlight line cursor is in
-cmd("colorscheme onedark")
+cmd.colorscheme("catppuccin-frappe")
 
 -- Looks in Neovide (my preferred GUI client)
 if g.neovide then
