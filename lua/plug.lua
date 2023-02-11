@@ -30,6 +30,7 @@ require("packer").startup({
 
         -- Treesitter
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
+        use { "windwp/nvim-ts-autotag" } -- HTML tag closing using treesitter
 
         -- LSP
         use { "hrsh7th/cmp-nvim-lsp" }
