@@ -21,7 +21,8 @@ map("n", "<leader>f.", builtin.find_files)
 map("n", "<leader>f,", builtin.git_files)
 map("n", "<leader>fr", builtin.oldfiles)
 map("n", "<leader>fg", function() builtin.live_grep() end)
-map("n", "<leader>/", function() builtin.grep_string({ search = vim.fn.input("Grep > "), regex = true }) end)
+map("n", "<leader>/", function() builtin.live_grep({ search_dirs = { vim.fn.expand("%:p")}}) end)
+map("n", "<leader>h", builtin.help_tags, {})
 
 -- Buffers
 local del_buf = function(prompt_bufnr)
@@ -40,5 +41,3 @@ map("n", "<leader><leader>", function() builtin.buffers{
     end
 } end)
 
--- Help menu
-map("n", "<leader>h", builtin.help_tags, {})
