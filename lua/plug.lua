@@ -30,7 +30,7 @@ require("packer").startup({
 
         -- Treesitter
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
-        use { "windwp/nvim-ts-autotag" } -- HTML tag closing using treesitter
+        use { "windwp/nvim-ts-autotag" } -- HTML tag closing using Treesitter
 
         -- LSP
         use { "hrsh7th/cmp-nvim-lsp" }
@@ -39,7 +39,7 @@ require("packer").startup({
         use { "hrsh7th/cmp-cmdline" }
         use { "hrsh7th/nvim-cmp" }
 
-        -- Mini.nvim
+        -- Mini.nvim (Extremely good collections of standalone functionalities)
         use { 'echasnovski/mini.nvim' }
 
         -- Snippets
@@ -60,9 +60,6 @@ require("packer").startup({
         use { "lukas-reineke/indent-blankline.nvim" }
         use { "numToStr/Comment.nvim" } -- Extreme power over comments 
 
-        -- Enchanted motions/navigation
-        use { "ggandor/leap.nvim" }
-
         -- Git
         use { "tpope/vim-fugitive"}
         use { "kdheepak/lazygit.nvim" }
@@ -82,12 +79,6 @@ require("packer").startup({
 
         -- Discord
         use { "andweeb/presence.nvim" } -- Discord stuff :P
-
-        -- Statusline
-        use { "nvim-lualine/lualine.nvim" }
-
-        -- Autopair
-        use { "windwp/nvim-autopairs" } -- Pairings
 
         -- Notetaking
         use { "vimwiki/vimwiki" } -- Personal wiki in Vim
