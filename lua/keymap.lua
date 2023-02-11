@@ -15,6 +15,11 @@ map('n', '<C-n>', ':set rnu!<CR>') -- toggle relative line numbers
 map("n", "0", "^")
 map("n", "^", "0")
 
+-- Browse buffers
+map({"n", "i"}, "<c-h>", vim.cmd.bprev)
+map({"n", "i"}, "<C-M-d>", vim.cmd.bdelete)
+map({"n", "i"}, "<c-l>", vim.cmd.bnext)
+
 -- Switch windows
 -- map("n", "<C-c>", "<C-w>c")
 -- map("n", "<C-h>", "<C-w>h")
