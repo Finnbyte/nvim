@@ -46,6 +46,7 @@ opt.foldmethod = "indent" -- Works for most languages, :help foldmethod
 -- Statusline
 opt.laststatus = 3 -- Set global statusline
 
+-- Misc
 opt.scrolloff = 5 -- Defines how many lines you see below and above cursor
 opt.title = true -- Set window title for window manager/bar
 opt.hidden = true -- Don't unload buffers, make them hidden
@@ -53,12 +54,10 @@ opt.backupdir = "/var/tmp,~/.tmp,."
 opt.directory = "/var/tmp,~/.tmp,."
 opt.wrap = true -- Wrap text when as long as width of window
 opt.showmatch = true -- Highlight matching parenthesis
--- opt.colorcolumn='80' -- Line lenght marker at 80 columns
-opt.ignorecase = true -- Ignore case letters when search
-opt.smartcase = true -- Ignore lowercase for the whole pattern
+opt.ic = true -- Ignore lowercase for the whole pattern
+opt.incsearch = true -- Incremental search
 opt.linebreak = true -- Wrap on word boundary
-opt.history=1000 -- Remember N lines in history
-
+opt.history = 1000 -- Remember N lines in history
 opt.lazyredraw = true -- Enable lazy redrawing functionality
 
 -- Set shell on Windows to be powershell, better commands (rm/ls.. etc.)
