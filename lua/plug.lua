@@ -18,7 +18,11 @@ require("packer").startup({
         -- Packer can manage it self
         use { "wbthomason/packer.nvim" }
 
+        -- Faster startup time
         use { 'lewis6991/impatient.nvim' }
+
+        -- Undo history
+        use { "mbbill/undotree" }
 
         -- Plugins I want only in a Linux environment
         if vim.fn.has("linux") or vim.fn.has("wsl") then
