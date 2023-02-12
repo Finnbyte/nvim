@@ -47,6 +47,7 @@ opt.foldmethod = "indent" -- Works for most languages, :help foldmethod
 opt.laststatus = 3 -- Set global statusline
 
 -- Misc
+opt.autochdir = true -- I want to see how this impacts my workflow, temporary possibly.
 opt.scrolloff = 5 -- Defines how many lines you see below and above cursor
 opt.title = true -- Set window title for window manager/bar
 opt.hidden = true -- Don't unload buffers, make them hidden
