@@ -22,7 +22,8 @@ map("n", "<leader>f,", builtin.git_files)
 map("n", "<leader>fr", builtin.oldfiles)
 map("n", "<leader>fg", function() builtin.live_grep() end)
 map("n", "<leader>/", function() builtin.live_grep({ search_dirs = { vim.fn.expand("%:p")}}) end)
-map("n", "<leader>h", builtin.help_tags, {})
+map("n", "<leader>h", builtin.help_tags)
+map("n", "<C-P>", builtin.commands)
 
 -- Buffers
 local del_buf = function(prompt_bufnr)
