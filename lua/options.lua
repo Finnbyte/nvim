@@ -50,8 +50,12 @@ opt.laststatus = 3 -- Set global statusline
 opt.scrolloff = 5 -- Defines how many lines you see below and above cursor
 opt.title = true -- Set window title for window manager/bar
 opt.hidden = true -- Don't unload buffers, make them hidden
-opt.backupdir = "/var/tmp,~/.tmp,."
-opt.directory = "/var/tmp,~/.tmp,."
+
+if vim.fn.has("linux") == 1 then
+    opt.backupdir = "/var/tmp,~/.tmp,."
+    opt.directory = "/var/tmp,~/.tmp,."
+end
+
 opt.wrap = true -- Wrap text when as long as width of window
 opt.showmatch = true -- Highlight matching parenthesis
 opt.ic = true -- Ignore lowercase for the whole pattern
