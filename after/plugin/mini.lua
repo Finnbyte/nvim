@@ -11,7 +11,7 @@ require("mini.statusline").setup({
 })
 
 require("mini.jump2d").setup()
-map("n", "<CR>", '<Cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>', {})
+map({"n", "v"}, "<CR>", '<Cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>', {})
 
 require("mini.pairs").setup({
     -- Modes where enabled
