@@ -38,6 +38,7 @@ opt.smartindent = true -- Autoindent new lines
 -- backup/swap files
 opt.swapfile = false  	-- have files saved to swap
 opt.undofile = true		-- file undo history preserved outside current session
+opt.undodir = vim.fn.expand("~") .. "/.nvim/undodir" -- Directory where undo data is preserved
 
 -- Folding
 opt.foldenable = false -- Enable fold
@@ -73,5 +74,5 @@ if fn.has("win64") then
     g.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 end
 
--- -- set colorcolumn=120 " Set a color for x width columns
+-- opt.colorcolumn="120"
 -- -- set synmaxcol=200  " ?
