@@ -10,7 +10,9 @@ end
 -- Set <leader> key
 vim.g.mapleader = ' ' -- Map leader key to space
 
-map('n', '<C-n>', ':set rnu!<CR>') -- toggle relative line numbers
+map('n', '<F1>', ':set rnu!<CR>') -- toggle relative line numbers
+map("n", "<F2>", ":nohlsearch<CR>") -- Disable highlighted entries
+map('n', '<F3>', ':set wrap!<CR>') -- toggle wrap 
 
 map("n", "0", "^")
 map("n", "^", "0")
@@ -26,6 +28,3 @@ map({"n", "i"}, "<c-l>", vim.cmd.bnext)
 -- map("n", "<C-j>", "<C-w>j")
 -- map("n", "<C-k>", "<C-w>k")
 -- map("n", "<C-l>", "<C-w>l")
-
--- Disable highlighted entries
-map("n", "<F2>", ":nohlsearch<CR>")
