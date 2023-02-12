@@ -4,6 +4,8 @@ require("mason-lspconfig").setup {
         "html",
         "cssls",
         "tsserver",
+        "omnisharp",
+        "omnisharp-mono",
         "eslint",
         "gopls",
         "sumneko_lua",
