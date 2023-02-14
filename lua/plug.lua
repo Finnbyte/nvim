@@ -72,7 +72,22 @@ require("packer").startup({
             use { "lewis6991/gitsigns.nvim" }
 
             -- File browser(s)
+            use {"SidOfc/carbon.nvim"}
+            use { "lambdalisue/fern.vim" }
             use { "tpope/vim-vinegar"}
+            use { 'hachy/nvf.nvim' }
+            use { "tamago324/lir.nvim", requires = { { "nvim-lua/plenary.nvim" }}}
+            use { 'theblob42/drex.nvim' }
+
+            -- Unless you are still migrating, remove the deprecated commands from v1.x
+            vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+            use {
+                "nvim-neo-tree/neo-tree.nvim",
+                branch = "v2.x",
+                requires = {
+                    "nvim-lua/plenary.nvim",
+                    "MunifTanjim/nui.nvim",
+                }}
 
             -- Which key
             use { "folke/which-key.nvim" }
