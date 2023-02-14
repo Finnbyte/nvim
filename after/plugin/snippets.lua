@@ -7,9 +7,10 @@ local luasnip = require("luasnip")
 map("i", "<Tab>", function()
     if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+    else
+        return "<Tab>"
     end
-    return "Tab"
-end, { silent = true })
+end, { silent = true, expr = true, replace_keycodes = true })
 
 map("i", "<S-Tab>", function()
     luasnip.jump(-1)
