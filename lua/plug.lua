@@ -44,6 +44,7 @@ require("packer").startup({
         use { "hrsh7th/cmp-path" }
         use { "hrsh7th/cmp-cmdline" }
         use { "hrsh7th/nvim-cmp" }
+        use("onsails/lspkind.nvim")
 
         -- Mini.nvim (Extremely good collections of standalone functionalities)
         use { 'echasnovski/mini.nvim' }
