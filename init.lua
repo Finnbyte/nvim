@@ -19,10 +19,10 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
-require("impatient")
-
 -- Load packer plugins
 require("plug")
+
+require("impatient")
 
 -- Load different lua-files which contain Vim-configuration 
 require("functions")
