@@ -2,9 +2,9 @@
 -- Clone from Github if not.
 local ensure_packer = function()
     local fn = vim.fn
-    local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -32,7 +32,8 @@ require("packer").startup({
         -- Looks
         use { "joshdick/onedark.vim" }
         use { "rose-pine/neovim" }
-        use { "catppuccin/nvim", as = "catppuccin"}
+        use { "folke/tokyonight.nvim" }
+        use { "catppuccin/nvim", as = "catppuccin" }
 
         -- Treesitter
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
@@ -44,13 +45,14 @@ require("packer").startup({
         use { "hrsh7th/cmp-path" }
         use { "hrsh7th/cmp-cmdline" }
         use { "hrsh7th/nvim-cmp" }
-        use("onsails/lspkind.nvim")
+        use { "onsails/lspkind.nvim" }
+        use { "folke/trouble.nvim" }
 
         -- Mini.nvim (Extremely good collections of standalone functionalities)
         use { 'echasnovski/mini.nvim' }
 
         -- Snippets
-        use {  "L3MON4D3/LuaSnip" }
+        use { "L3MON4D3/LuaSnip" }
         use { "saadparwaiz1/cmp_luasnip" }
         use { "rafamadriz/friendly-snippets" }
 
@@ -58,48 +60,48 @@ require("packer").startup({
         use {
             "williamboman/mason-lspconfig.nvim", -- Bridges gap between mason and LSP
             "williamboman/mason.nvim", -- Downloading language servers
-            "neovim/nvim-lspconfig" } -- LSP
-            use {
-                "nvim-telescope/telescope.nvim", tag = "0.1.0",
-                -- or                            , branch = "0.1.x",
-                requires = { {"nvim-lua/plenary.nvim"} }
-            }
-            use { "lukas-reineke/indent-blankline.nvim" }
-            use { "numToStr/Comment.nvim" } -- Extreme power over comments 
+            "neovim/nvim-lspconfig"
+        } -- LSP
+        use {
+            "nvim-telescope/telescope.nvim", tag = "0.1.0",
+            requires = { { "nvim-lua/plenary.nvim" } }
+        }
+        use { "lukas-reineke/indent-blankline.nvim" }
+        use { "numToStr/Comment.nvim" } -- Extreme power over comments
 
-            -- Git
-            use { "tpope/vim-fugitive"}
-            use { "kdheepak/lazygit.nvim" }
-            use { "lewis6991/gitsigns.nvim" }
+        -- Git
+        use { "tpope/vim-fugitive" }
+        use { "kdheepak/lazygit.nvim" }
+        use { "lewis6991/gitsigns.nvim" }
 
-            -- File browser(s)
-            use { "lambdalisue/fern.vim" }
-            use { 'hachy/nvf.nvim' }
-            use { "tamago324/lir.nvim", requires = { { "nvim-lua/plenary.nvim" }}}
+        -- File browser(s)
+        use { "lambdalisue/fern.vim" }
+        use { 'hachy/nvf.nvim' }
+        use { "tamago324/lir.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
 
-            -- Which key
-            use { "folke/which-key.nvim" }
+        -- Which key
+        use { "folke/which-key.nvim" }
 
-            -- Writing
-            use { "junegunn/goyo.vim" }
+        -- Writing
+        use { "junegunn/goyo.vim" }
 
-            -- Discord
-            use { "andweeb/presence.nvim" } -- Discord stuff :P
+        -- Discord
+        use { "andweeb/presence.nvim" } -- Discord stuff :P
 
-            -- Notetaking
-            use { "vimwiki/vimwiki" } -- Personal wiki in Vim
+        -- Notetaking
+        use { "vimwiki/vimwiki" } -- Personal wiki in Vim
 
 
-            if packer_bootstrap then
-                require("packer").sync()
-            end
-        end,
-        -- display packer dialouge in the center in a floating window
-        config = {
-            display = {
-                open_fn = require("packer.util").float,
-            },
+        if packer_bootstrap then
+            require("packer").sync()
+        end
+    end,
+    -- display packer dialouge in the center in a floating window
+    config = {
+        display = {
+            open_fn = require("packer.util").float,
         },
-    })
+    },
+})
 
-    -- # vim foldmethod=marker
+-- # vim foldmethod=marker
