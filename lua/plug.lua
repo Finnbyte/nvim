@@ -76,7 +76,6 @@ require("packer").startup({
 
         -- File browser(s)
         use { "lambdalisue/fern.vim" }
-        use { 'hachy/nvf.nvim' }
         use { "tamago324/lir.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
 
         -- Which key
