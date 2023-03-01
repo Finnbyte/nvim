@@ -42,6 +42,7 @@ opt.foldmethod = "indent" -- Works for most languages, :help foldmethod
 
 -- Statusline
 opt.laststatus = 3 -- Set global statusline
+opt.cmdheight = 1 -- Height of cmdline
 
 -- Misc
 opt.autochdir = true -- I want to see how this impacts my workflow, temporary possibly.
