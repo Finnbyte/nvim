@@ -8,10 +8,10 @@ require("mason-lspconfig").setup {
         "omnisharp_mono",
         "eslint",
         "gopls",
-        "sumneko_lua",
+        "lua_ls",
+        "luau_ls",
         "pyright",
     },
-
     automatic_installation = true,
 }
 
@@ -21,15 +21,9 @@ vim.diagnostic.config({ signs = false })
 -- Mappings
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
-    print("AHHAHA ATTACHED")
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
     -- Mappings when LSP has connected to a client
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -56,8 +50,10 @@ require("mason-lspconfig").setup_handlers {
         }
     end,
     -- override for lua server
-    ["sumneko_lua"] = function ()
-        require("lspconfig").sumneko_lua.setup{ settings = { Lua = { diagnostics = { globals = { 'vim' }}}}} -- don't complain about vim
+    ["luau_lsp"] = function ()
+        require("lspconfig").luau_lsp.setup{ settings = { Lua = { 
+            workspace = { checkThirdParty = false },
+            diagnostics = { globals = { 'vim' }}}}} -- don't complain about vim
     end
 }
 
