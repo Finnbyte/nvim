@@ -1,3 +1,39 @@
+local fern = function()
+    local init_fern = function()
+        -- Define NERDTree like keybindings
+        vim.cmd([[nmap <buffer> o <Plug>(fern-action-open:edit)]])
+        vim.cmd([[nmap <buffer> go <Plug>(fern-action-open:edit)<C-w>p]])
+        vim.cmd([[nmap <buffer> t <Plug>(fern-action-open:tabedit)]])
+        vim.cmd([[nmap <buffer> T <Plug>(fern-action-open:tabedit)gT]])
+        vim.cmd([[nmap <buffer> i <Plug>(fern-action-open:split)]])
+        vim.cmd([[nmap <buffer> gi <Plug>(fern-action-open:split)<C-w>p]])
+        vim.cmd([[nmap <buffer> s <Plug>(fern-action-open:vsplit)]])
+        vim.cmd([[nmap <buffer> gs <Plug>(fern-action-open:vsplit)<C-w>p]])
+        vim.cmd([[nmap <buffer> ma <Plug>(fern-action-new-path)]])
+        vim.cmd([[nmap <buffer> P gg]])
+        vim.cmd([[nmap <buffer> C <Plug>(fern-action-enter)]])
+        vim.cmd([[nmap <buffer> u <Plug>(fern-action-leave)]])
+        vim.cmd([[nmap <buffer> r <Plug>(fern-action-reload)]])
+        vim.cmd([[nmap <buffer> R gg<Plug>(fern-action-reload)<C-o>]])
+        vim.cmd([[nmap <buffer> cd <Plug>(fern-action-cd)]])
+        vim.cmd([[nmap <buffer> CD gg<Plug>(fern-action-cd)<C-o>]])
+        vim.cmd([[nmap <buffer> I <Plug>(fern-action-hidden-toggle)]])
+        vim.cmd([[nmap <buffer> q :<C-u>quit<CR>]])
+    end
+
+    local fern_group = vim.api.nvim_create_augroup("fern-custom", {})
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "fern",
+        callback = init_fern,
+        group = fern_group
+    })
+
+    map("n", "<leader>.", function() vim.cmd.Fern({ args = { ".", "-drawer" }}) end)
+
+    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Fern({ args = { vim.fn.stdpath("config"), "-drawer" }}) end, {})
+    vim.api.nvim_create_user_command("Data", function() vim.cmd.Fern({ args = { vim.fn.stdpath("data"), "-drawer" }})end, {})
+end
+
 local telescope_file_browser = function()
     require("telescope").setup {
         defaults = {
@@ -21,253 +57,6 @@ local telescope_file_browser = function()
     map("n", "<leader>.", function() extensions.file_browser.file_browser({ dir_icon="DIR", path="%:p:h" }) end, { noremap = true })
     map("n", "<leader>cf", function() extensions.file_browser.file_browser({ dir_icon="DIR", path=vim.fn.stdpath("config") }) end, { noremap = true })
     map("n", "<leader>pl", function() extensions.file_browser.file_browser({ dir_icon="DIR", path=string.format("%s/%s", vim.fn.stdpath("data"), "site/pack/packer/start")}) end, { noremap = true })
-end
-
-local nvim_tree = function()
-    require("nvim-tree").setup {
-        auto_reload_on_write = true,
-        disable_netrw = true,
-        hijack_cursor = false,
-        hijack_netrw = true,
-        hijack_unnamed_buffer_when_opening = false,
-        ignore_buffer_on_setup = false,
-        open_on_setup = false,
-        open_on_setup_file = false,
-        sort_by = "name",
-        root_dirs = {},
-        prefer_startup_root = false,
-        sync_root_with_cwd = false,
-        reload_on_bufenter = false,
-        respect_buf_cwd = false,
-        on_attach = "disable",
-        remove_keymaps = false,
-        select_prompts = false,
-        view = {
-            centralize_selection = false,
-            cursorline = true,
-            debounce_delay = 15,
-            width = 30,
-            hide_root_folder = false,
-            side = "left",
-            preserve_window_proportions = false,
-            number = false,
-            relativenumber = false,
-            signcolumn = "yes",
-            mappings = {
-                custom_only = false,
-                list = {
-                    -- user mappings go here
-                },
-            },
-            float = {
-                enable = false,
-                quit_on_focus_loss = true,
-                open_win_config = {
-                    relative = "editor",
-                    border = "rounded",
-                    width = 30,
-                    height = 30,
-                    row = 1,
-                    col = 1,
-                },
-            },
-        },
-        renderer = {
-            add_trailing = false,
-            group_empty = false,
-            highlight_git = false,
-            full_name = false,
-            highlight_opened_files = "none",
-            highlight_modified = "none",
-            root_folder_label = ":~:s?$?/..?",
-            indent_width = 2,
-            indent_markers = {
-                enable = false,
-                inline_arrows = true,
-                icons = {
-                    corner = "└",
-                    edge = "│",
-                    item = "│",
-                    bottom = "─",
-                    none = " ",
-                },
-            },
-            icons = {
-                webdev_colors = false,
-                git_placement = "before",
-                modified_placement = "after",
-                padding = " ",
-                symlink_arrow = " ➛ ",
-                show = {
-                    file = false,
-                    folder = false,
-                    folder_arrow = false,
-                    git = false,
-                    modified = false,
-                },
-                glyphs = {
-                    default = "",
-                    symlink = "",
-                    bookmark = "",
-                    modified = "●",
-                    folder = {
-                        arrow_closed = "",
-                        arrow_open = "",
-                        default = "",
-                        open = "",
-                        empty = "",
-                        empty_open = "",
-                        symlink = "",
-                        symlink_open = "",
-                    },
-                    git = {
-                        unstaged = "✗",
-                        staged = "✓",
-                        unmerged = "",
-                        renamed = "➜",
-                        untracked = "★",
-                        deleted = "",
-                        ignored = "◌",
-                    },
-                },
-            },
-            special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-            symlink_destination = true,
-        },
-        hijack_directories = {
-            enable = true,
-            auto_open = true,
-        },
-        update_focused_file = {
-            enable = false,
-            update_root = false,
-            ignore_list = {},
-        },
-        ignore_ft_on_setup = {},
-        system_open = {
-            cmd = "",
-            args = {},
-        },
-        diagnostics = {
-            enable = false,
-            show_on_dirs = false,
-            show_on_open_dirs = true,
-            debounce_delay = 50,
-            severity = {
-                min = vim.diagnostic.severity.HINT,
-                max = vim.diagnostic.severity.ERROR,
-            },
-            icons = {
-                hint = "",
-                info = "",
-                warning = "",
-                error = "",
-            },
-        },
-        filters = {
-            dotfiles = false,
-            git_clean = false,
-            no_buffer = false,
-            custom = {},
-            exclude = {},
-        },
-        filesystem_watchers = {
-            enable = true,
-            debounce_delay = 50,
-            ignore_dirs = {},
-        },
-        git = {
-            enable = true,
-            ignore = true,
-            show_on_dirs = true,
-            show_on_open_dirs = true,
-            timeout = 400,
-        },
-        modified = {
-            enable = false,
-            show_on_dirs = true,
-            show_on_open_dirs = true,
-        },
-        actions = {
-            use_system_clipboard = true,
-            change_dir = {
-                enable = true,
-                global = false,
-                restrict_above_cwd = false,
-            },
-            expand_all = {
-                max_folder_discovery = 300,
-                exclude = {},
-            },
-            file_popup = {
-                open_win_config = {
-                    col = 1,
-                    row = 1,
-                    relative = "cursor",
-                    border = "shadow",
-                    style = "minimal",
-                },
-            },
-            open_file = {
-                quit_on_open = false,
-                resize_window = true,
-                window_picker = {
-                    enable = true,
-                    picker = "default",
-                    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-                    exclude = {
-                        filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-                        buftype = { "nofile", "terminal", "help" },
-                    },
-                },
-            },
-            remove_file = {
-                close_window = true,
-            },
-        },
-        trash = {
-            cmd = "gio trash",
-        },
-        live_filter = {
-            prefix = "[FILTER]: ",
-            always_show_folders = true,
-        },
-        tab = {
-            sync = {
-                open = false,
-                close = false,
-                ignore = {},
-            },
-        },
-        notify = {
-            threshold = vim.log.levels.INFO,
-        },
-        ui = {
-            confirm = {
-                remove = true,
-                trash = true,
-            },
-        },
-        log = {
-            enable = false,
-            truncate = false,
-            types = {
-                all = false,
-                config = false,
-                copy_paste = false,
-                dev = false,
-                diagnostics = false,
-                git = false,
-                profile = false,
-                watcher = false,
-            },
-        },
-    }
-
-    map("n", "<leader>.", function() vim.cmd.NvimTreeOpen() end)
-    map("n", "<leader>cf", function() vim.cmd.NvimTreeOpen(vim.fn.stdpath("config")) end)
-    map("n", "<leader>pl", function() vim.cmd.NvimTreeOpen(vim.fn.stdpath("data")) end)
-
 end
 
 local lir = function()
@@ -336,12 +125,12 @@ local lir = function()
     })
 
     map("n", "<leader>.", function() vim.cmd.edit(vim.fn.expand("%:p:h")) end)
-    map("n", "<leader>cf", function() vim.cmd.edit(vim.fn.stdpath("config")) end)
-    map("n", "<leader>pl", function() vim.cmd.edit(vim.fn.stdpath("data")) end)
+
+    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Ex(vim.fn.stdpath("config")) end, {})
+    vim.api.nvim_create_user_command("Data", function() vim.cmd.Ex(vim.fn.stdpath("data")) end, {})
 
 end
 
-lir()
--- nvim_tree()
+fern()
+-- lir()
 -- telescope_file_browser()
--- neotree()
