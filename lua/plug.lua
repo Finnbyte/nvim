@@ -18,9 +18,6 @@ require("packer").startup({
         -- Packer can manage it self
         use { "wbthomason/packer.nvim" }
 
-        -- Faster startup time
-        use { 'lewis6991/impatient.nvim' }
-
         -- Undo history
         use { "mbbill/undotree" }
 
@@ -40,6 +37,10 @@ require("packer").startup({
         use { "windwp/nvim-ts-autotag" } -- HTML tag closing using Treesitter
 
         -- LSP
+        use {
+            "williamboman/mason-lspconfig.nvim", -- Bridges gap between mason and LSP
+            "williamboman/mason.nvim", -- Downloading language servers
+            "neovim/nvim-lspconfig" }
         use { "hrsh7th/cmp-nvim-lsp" }
         use { "hrsh7th/cmp-buffer" }
         use { "hrsh7th/cmp-path" }
@@ -57,12 +58,7 @@ require("packer").startup({
         use { "rafamadriz/friendly-snippets" }
 
         use { "rest-nvim/rest.nvim", requires = { { "nvim-lua/plenary.nvim" } } } -- REST requests inside vim
-        use {
-            "williamboman/mason-lspconfig.nvim", -- Bridges gap between mason and LSP
-            "williamboman/mason.nvim", -- Downloading language servers
-            "neovim/nvim-lspconfig"
-        } -- LSP
-        use {
+                use {
             "nvim-telescope/telescope.nvim", tag = "0.1.0",
             requires = { { "nvim-lua/plenary.nvim" } }
         }
