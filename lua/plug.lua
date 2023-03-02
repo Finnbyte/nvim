@@ -86,6 +86,9 @@ require("packer").startup({
         -- Notetaking
         use { "vimwiki/vimwiki" } -- Personal wiki in Vim
 
+        -- Utils
+        use { "dstein64/vim-startuptime" } -- Profile startuptime better
+        use { "jghauser/mkdir.nvim" } -- Create missing folders when saving files
 
         if packer_bootstrap then
             require("packer").sync()
