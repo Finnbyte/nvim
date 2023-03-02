@@ -1,1 +1,1 @@
-map("n", "<F5>", vim.cmd.UndotreeToggle)
+Map("n", "<F5>", vim.cmd.UndotreeToggle)

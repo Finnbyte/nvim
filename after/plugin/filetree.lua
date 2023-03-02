@@ -28,7 +28,7 @@ local fern = function()
         group = fern_group
     })
 
-    map("n", "<leader>.", function() vim.cmd.Fern({ args = { ".", "-drawer" }}) end)
+    Map("n", "<leader>.", function() vim.cmd.Fern({ args = { ".", "-drawer" }}) end)
 
     vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Fern({ args = { vim.fn.stdpath("config"), "-drawer" }}) end, {})
     vim.api.nvim_create_user_command("Data", function() vim.cmd.Fern({ args = { vim.fn.stdpath("data"), "-drawer" }})end, {})
@@ -54,9 +54,9 @@ local telescope_file_browser = function()
 
     require("telescope").load_extension "file_browser"
 
-    map("n", "<leader>.", function() extensions.file_browser.file_browser({ dir_icon="DIR", path="%:p:h" }) end, { noremap = true })
-    map("n", "<leader>cf", function() extensions.file_browser.file_browser({ dir_icon="DIR", path=vim.fn.stdpath("config") }) end, { noremap = true })
-    map("n", "<leader>pl", function() extensions.file_browser.file_browser({ dir_icon="DIR", path=string.format("%s/%s", vim.fn.stdpath("data"), "site/pack/packer/start")}) end, { noremap = true })
+    Map("n", "<leader>.", function() extensions.file_browser.file_browser({ dir_icon="DIR", path="%:p:h" }) end, { noremap = true })
+    Map("n", "<leader>cf", function() extensions.file_browser.file_browser({ dir_icon="DIR", path=vim.fn.stdpath("config") }) end, { noremap = true })
+    Map("n", "<leader>pl", function() extensions.file_browser.file_browser({ dir_icon="DIR", path=string.format("%s/%s", vim.fn.stdpath("data"), "site/pack/packer/start")}) end, { noremap = true })
 end
 
 local lir = function()
@@ -111,7 +111,7 @@ local lir = function()
         pattern = {"lir"},
         callback = function()
             -- use visual mode
-            vim.api.nvim_buf_set_keymap(
+            vim.api.nvim_buf_set_keyMap(
             0,
             "x",
             "J",
@@ -124,7 +124,7 @@ local lir = function()
         end
     })
 
-    map("n", "<leader>.", function() vim.cmd.edit(vim.fn.expand("%:p:h")) end)
+    Map("n", "<leader>.", function() vim.cmd.edit(vim.fn.expand("%:p:h")) end)
 
     vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Ex(vim.fn.stdpath("config")) end, {})
     vim.api.nvim_create_user_command("Data", function() vim.cmd.Ex(vim.fn.stdpath("data")) end, {})
