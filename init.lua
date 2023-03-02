@@ -22,8 +22,6 @@ end
 -- Load packer plugins
 require("plug")
 
-require("impatient")
-
 -- Load different lua-files which contain Vim-configuration 
 require("functions")
 require("keymap")
