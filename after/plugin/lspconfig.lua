@@ -21,6 +21,8 @@ vim.diagnostic.config({ signs = false })
 -- Mappings
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
@@ -53,7 +55,7 @@ require("mason-lspconfig").setup_handlers {
     ["luau_lsp"] = function ()
         require("lspconfig").luau_lsp.setup{ settings = { Lua = { 
             workspace = { checkThirdParty = false },
-            diagnostics = { globals = { 'vim' }}}}} -- don't complain about vim
+            diagnostics = { globals = { 'vim', 'Map' }}}}} -- don't complain about vim
     end
 }
 
