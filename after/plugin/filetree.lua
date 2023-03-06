@@ -111,7 +111,7 @@ local lir = function()
         pattern = {"lir"},
         callback = function()
             -- use visual mode
-            vim.api.nvim_buf_set_keyMap(
+            vim.api.nvim_buf_set_keymap(
             0,
             "x",
             "J",
@@ -126,11 +126,11 @@ local lir = function()
 
     Map("n", "<leader>.", function() vim.cmd.edit(vim.fn.expand("%:p:h")) end)
 
-    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Ex(vim.fn.stdpath("config")) end, {})
-    vim.api.nvim_create_user_command("Data", function() vim.cmd.Ex(vim.fn.stdpath("data")) end, {})
+    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.edit(vim.fn.stdpath("config")) end, {})
+    vim.api.nvim_create_user_command("Data", function() vim.cmd.edit(vim.fn.stdpath("data")) end, {})
 
 end
 
-fern()
--- lir()
+-- fern()
+lir()
 -- telescope_file_browser()
