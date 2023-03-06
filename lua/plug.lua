@@ -34,7 +34,7 @@ require("packer").startup({
 
         -- Treesitter
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
-        use { "windwp/nvim-ts-autotag" } -- HTML tag closing using Treesitter
+        use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" } -- HTML tag closing using Treesitter
 
         -- LSP
         use {
@@ -85,10 +85,9 @@ require("packer").startup({
 
         -- Notetaking
         use { "vimwiki/vimwiki" } -- Personal wiki in Vim
-
         -- Utils
-        use { "dstein64/vim-startuptime" } -- Profile startuptime better
         use { "jghauser/mkdir.nvim" } -- Create missing folders when saving files
+        use {"akinsho/toggleterm.nvim", tag = '*'}
 
         if packer_bootstrap then
             require("packer").sync()
