@@ -85,6 +85,10 @@ require("packer").startup({
 
         -- Notetaking
         use { "vimwiki/vimwiki" } -- Personal wiki in Vim
+
+        -- Motion
+        use { "ggandor/leap.nvim" }
+
         -- Utils
         use { "jghauser/mkdir.nvim" } -- Create missing folders when saving files
         use {"akinsho/toggleterm.nvim", tag = '*'}
