@@ -4,8 +4,8 @@ local opt = vim.opt
 local g = vim.g
 local o = vim.o
 
--- Line numbers (basically do hybrid)
 opt.rnu = true
+-- Line numbers (basically do hybrid)
 opt.nu = true
 
 -- Looks
@@ -45,6 +45,7 @@ opt.laststatus = 3 -- Set global statusline
 opt.cmdheight = 1 -- Height of cmdline
 
 -- Misc
+opt.tildeop = true -- Make tilde an operator
 opt.autochdir = true -- I want to see how this impacts my workflow, temporary possibly.
 opt.scrolloff = 5 -- Defines how many lines you see below and above cursor
 opt.title = true -- Set window title for window manager/bar
