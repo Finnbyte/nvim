@@ -4,6 +4,9 @@ require("telescope").setup {
         disable_devicons = true,
         multi_icon = " ",
         color_devicons = false,
+        file_ignore_patterns = {
+            "node_modules"
+        },
     },
     pickers = {
         buffers = {
