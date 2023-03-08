@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- Fix errors when saving a javascript/typescript file
 local eslint_fix_group = vim.api.nvim_create_augroup("Eslint", { clear = true })
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
-    pattern = { "*.ts", "*.js" },
+    pattern = { "*.ts", "*.js", "*.tsx", "*.jsx" },
     group = eslint_fix_group,
     callback = function()
         vim.cmd.EslintFixAll()
