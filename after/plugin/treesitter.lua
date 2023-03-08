@@ -14,6 +14,10 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 
+  indent = {
+    enable = true
+  },
+
   -- Uses Vim's built-in syntax highlighting AND treesitter, slows down editor so no thanks.
   additional_vim_regex_highlighting = false,
 }
