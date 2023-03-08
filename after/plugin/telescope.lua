@@ -1,3 +1,4 @@
+local actions = require('telescope.actions')
 require("telescope").setup {
     defaults = {
         disable_devicons = true,
@@ -22,11 +23,11 @@ require("telescope").setup {
 }
 
 local action_state = require('telescope.actions.state')
-local actions = require('telescope.actions')
 
 -- Handle builtins
 local builtin = require('telescope.builtin')
 Map("n", "<leader>f.", builtin.find_files)
+Map("n", "<leader><space>", builtin.buffers)
 Map("n", "<leader>f,", builtin.git_files)
 Map("n", "<leader>fr", builtin.oldfiles)
 Map("n", "<leader>fg", function() builtin.live_grep() end)
