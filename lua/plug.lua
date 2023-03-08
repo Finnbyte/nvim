@@ -52,6 +52,9 @@ require("packer").startup({
         -- Mini.nvim (Extremely good collections of standalone functionalities)
         use { 'echasnovski/mini.nvim' }
 
+        -- Indentation
+        use { "Darazaki/indent-o-matic" }
+
         -- Snippets
         use { "L3MON4D3/LuaSnip" }
         use { "saadparwaiz1/cmp_luasnip" }
