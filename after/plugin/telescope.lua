@@ -4,6 +4,15 @@ require("telescope").setup {
         multi_icon = " ",
         color_devicons = false,
     },
+    pickers = {
+        buffers = {
+            mappings = {
+                i = {
+                    ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+                }
+            }
+        }
+    },
     extensions = {
         file_browser = {
             -- disables netrw and use telescope-file-browser in its place
@@ -31,14 +40,4 @@ local del_buf = function(prompt_bufnr)
     actions.close(prompt_bufnr)
     vim.api.nvim_buf_delete(selection.bufnr, { force = true })
 end
-
-Map("n", "<leader><leader>", function() builtin.buffers{
-    attach_mappings = function(prompt_bufnr , map)
-        Map('n', 'dd', function()
-            del_buf(prompt_bufnr)
-            builtin.buffers()
-        end)
-        return true
-    end
-} end)
 
