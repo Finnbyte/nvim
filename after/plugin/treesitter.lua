@@ -18,6 +18,11 @@ require('nvim-treesitter.configs').setup {
     enable = true
   },
 
+  autotag = {
+    enable = true,
+    filetypes = {'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript'}
+  },
+
   -- Uses Vim's built-in syntax highlighting AND treesitter, slows down editor so no thanks.
   additional_vim_regex_highlighting = false,
 }
