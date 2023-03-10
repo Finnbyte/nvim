@@ -37,11 +37,3 @@ Map("n", "<leader>fg", function() builtin.live_grep() end)
 Map("n", "<leader>/", function() builtin.live_grep({ search_dirs = { vim.fn.expand("%:p")}}) end)
 Map("n", "<leader>h", builtin.help_tags)
 Map("n", "<C-P>", builtin.commands)
-
--- Buffers
-local del_buf = function(prompt_bufnr)
-    local selection = action_state.get_selected_entry()
-    actions.close(prompt_bufnr)
-    vim.api.nvim_buf_delete(selection.bufnr, { force = true })
-end
-
