@@ -110,8 +110,8 @@ keybinding:
     scrollRight: 'L' # scroll right within list view
     prevBlock: '<left>' # goto the previous block / panel
     nextBlock: '<right>' # goto the next block / panel
-    prevBlock-alt: 'h' # goto the previous block / panel
-    nextBlock-alt: 'l' # goto the next block / panel
+    prevBlock-alt: null # goto the previous block / panel
+    nextBlock-alt: null # goto the next block / panel
     jumpToBlock: ['1', '2', '3', '4', '5'] # goto the Nth block / panel
     nextMatch: 'n'
     prevMatch: 'N'
@@ -138,8 +138,8 @@ keybinding:
     pullFiles: 'p'
     refresh: 'R'
     createPatchOptionsMenu: '<c-p>'
-    nextTab: ']'
-    prevTab: '['
+    nextTab: 'l'
+    prevTab: 'h'
     nextScreenMode: '+'
     prevScreenMode: '_'
     undo: 'z'
