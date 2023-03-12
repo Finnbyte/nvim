@@ -49,6 +49,7 @@ require("packer").startup({
         use { "hrsh7th/nvim-cmp" }
         use { "onsails/lspkind.nvim" }
         use { "folke/trouble.nvim" }
+        use { "ray-x/lsp_signature.nvim" }
 
         -- Mini.nvim (Extremely good collections of standalone functionalities)
         use { 'echasnovski/mini.nvim' }
@@ -94,6 +95,7 @@ require("packer").startup({
         use { "ggandor/leap.nvim" }
 
         -- Utils
+        use { "j-morano/buffer_manager.nvim" }
         use { "jghauser/mkdir.nvim" } -- Create missing folders when saving files
         use {"akinsho/toggleterm.nvim", tag = '*'}
 

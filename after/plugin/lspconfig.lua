@@ -9,7 +9,6 @@ require("mason-lspconfig").setup {
         "eslint",
         "gopls",
         "lua_ls",
-        "luau_ls",
         "pyright",
     },
     automatic_installation = true,
@@ -27,6 +26,9 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local builtin = require("telescope.builtin")
 local on_attach = function(client, bufnr)
+    -- Enable signatures
+    require "lsp_signature".on_attach(signature_setup, bufnr)
+
     -- Mappings when LSP has connected to a client
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
