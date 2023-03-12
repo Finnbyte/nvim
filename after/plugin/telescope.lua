@@ -8,15 +8,6 @@ require("telescope").setup {
             "node_modules"
         },
     },
-    pickers = {
-        buffers = {
-            mappings = {
-                i = {
-                    ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
-                }
-            }
-        }
-    },
     extensions = {
         file_browser = {
             -- disables netrw and use telescope-file-browser in its place
@@ -30,7 +21,6 @@ local action_state = require('telescope.actions.state')
 -- Handle builtins
 local builtin = require('telescope.builtin')
 Map("n", "<leader>f.", builtin.find_files)
-Map("n", "<leader><space>", builtin.buffers)
 Map("n", "<leader>f,", builtin.git_files)
 Map("n", "<leader>fr", builtin.oldfiles)
 Map("n", "<leader>fg", function() builtin.live_grep() end)
