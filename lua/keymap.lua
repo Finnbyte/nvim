@@ -3,6 +3,10 @@ function Map(mode, shortcut, command)
   vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true })
 end
 
+function BufMap(mode, shortcut, command)
+  vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, buffer = 0 })
+end
+
 function Unmap(mode, bind)
 	vim.api.nvim_del_keyMap(mode, bind)
 end
