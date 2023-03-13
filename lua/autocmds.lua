@@ -1,14 +1,5 @@
--- vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
--- 	  pattern = {"*.c", "*.h"},
--- 	  command = "echo 'Entering a C or C++ file'",
--- })
-
--- -- Make window transparent on launch
--- vim.api.nvim_create_autocmd({"VimEnter"}, {
--- 	command = "TransparentEnable",
--- })
-
-vim.cmd([[autocmd BufEnter * silent! :lcd%:p:h]])
+-- Emulate autochdir
+vim.cmd([[autocmd BufEnter * silent! lcd %:p:h]])
 
 -- Disable annoying commentting
 local annoying_comments_group = vim.api.nvim_create_augroup("Comments", { clear = true })
