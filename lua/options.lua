@@ -46,7 +46,7 @@ opt.cmdheight = 1 -- Height of cmdline
 
 -- Misc
 opt.tildeop = true -- Make tilde an operator
-opt.autochdir = true -- I want to see how this impacts my workflow, temporary possibly.
+-- opt.autochdir = true -- I want to see how this impacts my workflow, temporary possibly.
 opt.scrolloff = 5 -- Defines how many lines you see below and above cursor
 opt.title = true -- Set window title for window manager/bar
 opt.hidden = true -- Don't unload buffers, make them hidden
@@ -63,6 +63,7 @@ opt.incsearch = true -- Incremental search
 opt.linebreak = true -- Wrap on word boundary
 opt.history = 1000 -- Remember N lines in history
 opt.lazyredraw = true -- Enable lazy redrawing functionality
+opt.timeoutlen = 700 -- Faster timeout length
 
 -- Set shell on Windows to be powershell, better commands (rm/ls.. etc.)
 if fn.has("win64") then
