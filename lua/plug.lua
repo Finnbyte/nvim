@@ -97,7 +97,7 @@ require("packer").startup({
         -- Utils
         use { "j-morano/buffer_manager.nvim" }
         use { "jghauser/mkdir.nvim" } -- Create missing folders when saving files
-        use {"akinsho/toggleterm.nvim", tag = '*'}
+        use { "voldikss/vim-floaterm" }
 
         if packer_bootstrap then
             require("packer").sync()
