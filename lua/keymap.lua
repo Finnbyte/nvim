@@ -17,11 +17,6 @@ Map('n', '<F3>', ':set wrap!<CR>') -- toggle wrap
 Map("n", "0", "^")
 Map("n", "^", "0")
 
--- Browse buffers
-Map({"n", "i", "t"}, "<C-h>", vim.cmd.bprev)
-Map({"n", "i", "t"}, "<C-l>", vim.cmd.bnext)
-Map({"n", "i", "t"}, "<M-d>", vim.cmd.bdelete)
-
 -- Resize splits
 -- Map({"n", "i", "t"}, "<C-Right>", vim.cmd([[resize +10]]))
 -- Map({"n", "i", "t"}, "<C-Left", vim.cmd([[resize -10]]))
@@ -33,8 +28,8 @@ Map({"n", "i", "t", "v"}, "<C-u>", "<C-u>zz")
 Map({"n", "i", "t", "v"}, "<C-d>", "<C-d>zz")
 
 -- Switch windows
--- Map("n", "<C-c>", "<C-w>c")
--- Map("n", "<C-h>", "<C-w>h")
--- Map("n", "<C-j>", "<C-w>j")
--- Map("n", "<C-k>", "<C-w>k")
--- Map("n", "<C-l>", "<C-w>l")
+Map("n", "<C-c>", "<C-w>c")
+Map("n", "<C-h>", "<C-w>h")
+Map("n", "<C-j>", "<C-w>j")
+Map("n", "<C-k>", "<C-w>k")
+Map("n", "<C-l>", "<C-w>l")
