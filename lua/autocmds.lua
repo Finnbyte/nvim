@@ -8,6 +8,8 @@
 -- 	command = "TransparentEnable",
 -- })
 
+vim.cmd([[autocmd BufEnter * silent! :lcd%:p:h]])
+
 -- Disable annoying commentting
 local annoying_comments_group = vim.api.nvim_create_augroup("Comments", { clear = true })
 vim.api.nvim_create_autocmd({"BufEnter"}, {
