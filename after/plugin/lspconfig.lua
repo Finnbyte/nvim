@@ -30,12 +30,13 @@ local on_attach = function(client, bufnr)
     require "lsp_signature".on_attach(signature_setup, bufnr)
 
     -- Mappings when LSP has connected to a client
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<leader>wd', builtin.lsp_document_symbols, bufopts)
-    vim.keymap.set('n', '<leader>ws', builtin.lsp_workspace_symbols, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', '<leader>sd', builtin.lsp_document_symbols, bufopts)
+    vim.keymap.set('n', '<leader>sw', builtin.lsp_workspace_symbols, bufopts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -43,23 +44,22 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities() -- Integrate cmp with LSP
 require("mason-lspconfig").setup_handlers {
-    function (server_name) -- global handler 
+    function(server_name) -- global handler
         require("lspconfig")[server_name].setup {
             on_attach = on_attach,
             capabilities = capabilities,
         }
     end,
     -- override for lua server
-    ["luau_lsp"] = function ()
-        require("lspconfig").luau_lsp.setup{ settings = { Lua = { 
+    ["luau_lsp"] = function()
+        require("lspconfig").luau_lsp.setup { settings = { Lua = {
             workspace = { checkThirdParty = false },
-            diagnostics = { globals = { 'vim', 'Map' }}}}} -- don't complain about vim
+            diagnostics = { globals = { 'vim', 'Map' } } } } } -- don't complain about vim
     end
 }
 
