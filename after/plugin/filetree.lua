@@ -66,7 +66,7 @@ local lir = function()
 
     require'lir'.setup {
         show_hidden_files = true,
-        ignore = {"node_modules", ".git"}, -- { ".DS_Store", "node_modules" } etc.
+        ignore = {".git"}, -- { ".DS_Store", "node_modules" } etc.
         devicons = {
             enable = false,
             highlight_dirname = false
