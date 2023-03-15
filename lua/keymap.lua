@@ -1,6 +1,7 @@
 -- Helper functions (available globally by design)
-function Map(mode, shortcut, command)
-  vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true })
+function Map(mode, shortcut, command, desc)
+  desc = desc or nil 
+  vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, desc = desc})
 end
 
 function BufMap(mode, shortcut, command)
@@ -12,7 +13,11 @@ function Unmap(mode, bind)
 end
 
 vim.g.mapleader = ' ' -- Map leader key to space
--- Set <leader> key
+
+Map({"n", "v"}, "<C-p>", function ()
+  vim.cmd.cd("%:p:h")
+  print(string.format("New CWD: %s", vim.fn.getcwd()))
+end, "Set CWD to current file")
 
 Map('n', '<F1>', ':set rnu!<CR>') -- toggle relative line numbers
 Map("n", "<F2>", ":nohlsearch<CR>") -- Disable highlighted entries
@@ -20,12 +25,6 @@ Map('n', '<F3>', ':set wrap!<CR>') -- toggle wrap
 
 Map("n", "0", "^")
 Map("n", "^", "0")
-
--- Resize splits
--- Map({"n", "i", "t"}, "<C-Right>", vim.cmd([[resize +10]]))
--- Map({"n", "i", "t"}, "<C-Left", vim.cmd([[resize -10]]))
--- Map({"n", "i", "t"}, "<C-Up", vim.cmd([[vertical resize +10]]))
--- Map({"n", "i", "t"}, "<C-Down>", vim.cmd([[vertical resize -10]]))
 
 -- Go up/down 1/2 screen without moving cursor
 Map({"n", "i", "t", "v"}, "<C-u>", "<C-u>zz")
