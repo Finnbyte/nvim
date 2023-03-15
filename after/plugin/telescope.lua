@@ -16,14 +16,11 @@ require("telescope").setup {
     }
 }
 
-local action_state = require('telescope.actions.state')
-
 -- Handle builtins
 local builtin = require('telescope.builtin')
-Map("n", "<leader>f.", builtin.find_files)
-Map("n", "<leader>f,", builtin.git_files)
+Map("n", "<leader>f,", builtin.find_files)
 Map("n", "<leader>fr", builtin.oldfiles)
 Map("n", "<leader>fg", function() builtin.live_grep() end)
 Map("n", "<leader>/", function() builtin.live_grep({ search_dirs = { vim.fn.expand("%:p")}}) end)
 Map("n", "<leader>h", builtin.help_tags)
-Map("n", "<C-P>", builtin.commands)
+Map("n", "<leader>:", builtin.commands)
