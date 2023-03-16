@@ -20,7 +20,26 @@ require('nvim-treesitter.configs').setup {
 
   autotag = {
     enable = true,
-    filetypes = {'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript'}
+    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript' }
+  },
+
+  rainbow = {
+    enable = true,
+    -- list of languages you want to disable the plugin for
+    disable = { "jsx", "cpp" },
+    -- Which query to use for finding delimiters
+    query = 'rainbow-parens',
+    strategy = require("ts-rainbow").strategy.global,
+    hlgroups = {
+      'TSRainbowRed',
+      'TSRainbowYellow',
+      'TSRainbowBlue',
+      'TSRainbowOrange',
+      'TSRainbowGreen',
+      'TSRainbowViolet',
+      'TSRainbowCyan'
+    },
+
   },
 
   -- Uses Vim's built-in syntax highlighting AND treesitter, slows down editor so no thanks.
