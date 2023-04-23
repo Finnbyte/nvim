@@ -24,7 +24,9 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     pattern = { "*.ts", "*.js", "*.tsx", "*.jsx" },
     group = eslint_fix_group,
     callback = function()
-        vim.cmd.EslintFixAll()
-        vim.cmd.write() -- Save changes again after fixed errors
+		local ok, _ = pcall(vim.cmd.EslintFixAll)
+		if ok then
+			vim.cmd.write() -- Save changes again after fixed errors
+		end
     end
 })
