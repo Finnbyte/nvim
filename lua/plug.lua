@@ -30,6 +30,7 @@ require("packer").startup({
         use { "joshdick/onedark.vim" }
         use { "rose-pine/neovim" }
         use { "folke/tokyonight.nvim" }
+        use { "ellisonleao/gruvbox.nvim" }
         use { "catppuccin/nvim", as = "catppuccin" }
 
         -- Treesitter
