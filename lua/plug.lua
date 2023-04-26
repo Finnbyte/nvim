@@ -97,7 +97,6 @@ require("packer").startup({
         use { "ggandor/leap.nvim" }
 
         -- Utils
-        use { "j-morano/buffer_manager.nvim" }
         use { "jghauser/mkdir.nvim" } -- Create missing folders when saving files
         use { "voldikss/vim-floaterm" }
 
