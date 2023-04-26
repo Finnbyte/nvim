@@ -46,7 +46,7 @@ opt.cmdheight = 1 -- Height of cmdline
 
 -- Misc
 opt.tildeop = true -- Make tilde an operator
-opt.nofsync = true -- Makes some systems slower
+opt.fsync = false -- Makes some systems slower
 opt.scrolloff = 5 -- Defines how many lines you see below and above cursor
 opt.title = true -- Set window title for window manager/bar
 opt.hidden = true -- Don't unload buffers, make them hidden
