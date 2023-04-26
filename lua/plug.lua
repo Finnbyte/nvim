@@ -35,6 +35,7 @@ require("packer").startup({
         -- Treesitter
         use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Syntax highlighting
         use { "windwp/nvim-ts-autotag", after = "nvim-treesitter" } -- HTML tag closing using Treesitter
+        use { "HiPhish/nvim-ts-rainbow2" } -- Matching tags/brackets/etc with rainbow colors
 
         -- LSP
         use {
