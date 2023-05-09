@@ -1,3 +1,5 @@
 require("presence"):setup({
-    neovim_image_text = "Switched from Emacs.. again.",
+    neovim_image_text = "qqibruh<ESC>o<ESC>q100@q",
 })
+
+
