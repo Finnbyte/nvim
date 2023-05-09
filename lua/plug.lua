@@ -100,6 +100,15 @@ require("packer").startup({
         use { "jghauser/mkdir.nvim" } -- Create missing folders when saving files
         use { "voldikss/vim-floaterm" }
 
+        -- Language support
+        use {
+            "akinsho/flutter-tools.nvim",
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "stevearc/dressing.nvim", -- optional for vim.ui.select
+            },
+        }
+
         if packer_bootstrap then
             require("packer").sync()
         end
