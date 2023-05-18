@@ -6,7 +6,7 @@ set mouse=a
 " Set Editor Font
 if exists(':GuiFont')
     " Use GuiFont! to ignore font errors
-    GuiFont consolas:h14
+    GuiFont! Cascadia Code:h14,consolas:h14
 endif
 
 " Disable GUI Tabline
@@ -28,6 +28,7 @@ if exists(':GuiAdaptiveStyle')
     GuiAdaptiveStyle Fusion
 endif
 
+highlight Normal ctermbg=235 guibg=#282828
 " Right Click Context Menu (Copy-Cut-Paste)
 "nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
 "inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
