@@ -1,3 +1,7 @@
+function Change_bg_color(t)
+    vim.cmd(string.format([[ highlight Normal ctermbg=%s guibg=%s ]], t.term or "", t.gui or ""))
+end
+
 CheckPowerPlan = function()
     -- Check if has Windows
     if vim.fn.has("win64") == 0 then
