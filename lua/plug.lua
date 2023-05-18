@@ -28,9 +28,10 @@ require("packer").startup({
 
         -- Looks
         use { "joshdick/onedark.vim" }
+        use { "rmehri01/onenord.nvim" }
         use { "rose-pine/neovim" }
         use { "folke/tokyonight.nvim" }
-        use { "ellisonleao/gruvbox.nvim" }
+        use { "ellisonleao/gruvbox.nvim", config = function() Change_bg_color({ term = "235", gui = "#282828" }) end }
         use { "catppuccin/nvim", as = "catppuccin" }
 
         -- Treesitter
