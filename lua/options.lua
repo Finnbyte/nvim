@@ -66,12 +66,12 @@ opt.lazyredraw = true -- Enable lazy redrawing functionality
 opt.timeoutlen = 700 -- Faster timeout length
 
 -- Set shell on Windows to be powershell, better commands (rm/ls.. etc.)
-if fn.has("win64") then
-    g.shell = fn.executable('pwsh') and 'pwsh' or 'powershell'
-    g.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-    g.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-    g.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-end
+-- if fn.has("win64") then
+--     g.shell = fn.executable('pwsh') and 'pwsh' or 'powershell'
+--     g.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+--     g.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+--     g.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- end
 
 -- opt.colorcolumn="120"
 -- -- set synmaxcol=200  " ?
