@@ -18,7 +18,12 @@ require("telescope").setup {
 
 -- Handle builtins
 local builtin = require('telescope.builtin')
-Map("n", "<leader>f,", builtin.git_files)
+Map("n", "<leader>f,", function()
+    local success = pcall(builtin.git_files)
+    if not success then
+        print("You need to be in a directory with .git/ for builtin.git_files!")
+    end
+end)
 Map("n", "<leader>f.", builtin.find_files)
 Map("n", "<leader>fr", builtin.oldfiles)
 Map("n", "<leader>fg", function() builtin.live_grep() end)
