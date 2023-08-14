@@ -12,7 +12,8 @@ local powershell = function()
   vim.cmd([[set shellxquote=]])
 end
 
-if vim.fn.executable('nu') == 1 then
+local EXISTS = 1
+if vim.fn.executable('nu') == EXISTS then
   nu_shell()
 else
   powershell()
