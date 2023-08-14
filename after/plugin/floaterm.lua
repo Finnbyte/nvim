@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         BufMap("t", "<C-k>", vim.cmd.FloatermKill)
         BufMap("t", "<C-n>", vim.cmd.FloatermToggle)
         BufMap("t", "<C-S-n>", vim.cmd.FloatermNew)
-        BufMap("t", "<C-S-c>", function ()
+        BufMap("t", "<C-S-->", function ()
             floaterm_custom_kill(vim.fn["floaterm#buflist#curr"]())
         end)
     end
