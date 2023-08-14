@@ -75,7 +75,6 @@ require("packer").startup({
 
         -- Git
         use { "tpope/vim-fugitive" }
-        use { "kdheepak/lazygit.nvim" }
         use { "lewis6991/gitsigns.nvim" }
 
         -- File browser(s)
