@@ -1,7 +1,7 @@
 vim.g.floaterm_autoinsert = true
 
-Map("n", "<leader>t", vim.cmd.FloatermToggle)
-Map("n", "<leader>tn", vim.cmd.FloatermNew)
+Map("n", "<C-n>", vim.cmd.FloatermToggle)
+Map("n", "<C-S-n>", vim.cmd.FloatermNew)
 
 local floaterm_custom_kill = function (id)
     vim.cmd(string.format("%sFloatermKill", id))
@@ -16,9 +16,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         BufMap("t", "<C-h>", vim.cmd.FloatermPrev)
         BufMap("t", "<C-l>", vim.cmd.FloatermNext)
         BufMap("t", "<C-k>", vim.cmd.FloatermKill)
-        BufMap("t", "<leader>t", vim.cmd.FloatermToggle)
-        BufMap("t", "<leader>tn", vim.cmd.FloatermNew)
-        BufMap("t", "<leader>td", function ()
+        BufMap("t", "<C-n>", vim.cmd.FloatermToggle)
+        BufMap("t", "<C-S-n>", vim.cmd.FloatermNew)
+        BufMap("t", "<C-S-c>", function ()
             floaterm_custom_kill(vim.fn["floaterm#buflist#curr"]())
         end)
     end
