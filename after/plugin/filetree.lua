@@ -11,14 +11,14 @@ local fern = function()
         vim.cmd([[nmap <buffer> gs <Plug>(fern-action-open:vsplit)<C-w>p]])
         vim.cmd([[nmap <buffer> ma <Plug>(fern-action-new-path)]])
         vim.cmd([[nmap <buffer> P gg]])
-        vim.cmd([[nmap <buffer> C <Plug>(fern-action-enter)]])
-        vim.cmd([[nmap <buffer> u <Plug>(fern-action-leave)]])
+        vim.cmd([[nmap <buffer> l <Plug>(fern-action-enter)]])
+        vim.cmd([[nmap <buffer> h <Plug>(fern-action-leave)]])
         vim.cmd([[nmap <buffer> r <Plug>(fern-action-reload)]])
         vim.cmd([[nmap <buffer> R gg<Plug>(fern-action-reload)<C-o>]])
         vim.cmd([[nmap <buffer> cd <Plug>(fern-action-cd)]])
         vim.cmd([[nmap <buffer> CD gg<Plug>(fern-action-cd)<C-o>]])
         vim.cmd([[nmap <buffer> I <Plug>(fern-action-hidden-toggle)]])
-        vim.cmd([[nmap <buffer> q :<C-u>quit<CR>]])
+        vim.cmd([[nmap <buffer> q :bd<CR>]])
     end
 
     local fern_group = vim.api.nvim_create_augroup("fern-custom", {})
@@ -28,10 +28,10 @@ local fern = function()
         group = fern_group
     })
 
-    Map("n", "<leader>.", function() vim.cmd.Fern({ args = { ".", "-drawer" }}) end)
+    Map("n", "<leader>.", function() vim.cmd.Fern({ args = { "." }}) end)
 
-    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Fern({ args = { vim.fn.stdpath("config"), "-drawer" }}) end, {})
-    vim.api.nvim_create_user_command("Data", function() vim.cmd.Fern({ args = { vim.fn.stdpath("data"), "-drawer" }})end, {})
+    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Fern({ args = { vim.fn.stdpath("config") }}) end, {})
+    vim.api.nvim_create_user_command("Data", function() vim.cmd.Fern({ args = { vim.fn.stdpath("data") }})end, {})
 end
 
 local telescope_file_browser = function()
@@ -131,6 +131,6 @@ local lir = function()
 
 end
 
--- fern()
-lir()
+fern()
+--lir()
 -- telescope_file_browser()
