@@ -6,6 +6,9 @@ require("mini.tabline").setup({
 })
 
 
+require("mini.misc").setup()
+
+
 require("mini.indentscope").setup()
 
 
