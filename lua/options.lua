@@ -33,8 +33,7 @@ opt.smartindent = true -- Autoindent new lines
 
 -- backup/swap files
 opt.swapfile = false  	-- have files saved to swap
-opt.undofile = true		-- file undo history preserved outside current session
-opt.undodir = fn.expand("$VIM") .. "/.nvim/undodir" -- Directory where undo data is preserved
+-- opt.undofile = true	-- file undo history preserved outside current session
 
 -- Folding
 opt.foldenable = false -- Enable fold
