@@ -67,7 +67,7 @@ require("packer").startup({
 
         use { "rest-nvim/rest.nvim", requires = { { "nvim-lua/plenary.nvim" } } } -- REST requests inside vim
                 use {
-            "nvim-telescope/telescope.nvim", tag = "0.1.0",
+            "nvim-telescope/telescope.nvim", tag = "0.1.x",
             requires = { { "nvim-lua/plenary.nvim" } }
         }
         use { "lukas-reineke/indent-blankline.nvim" }
