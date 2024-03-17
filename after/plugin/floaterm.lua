@@ -9,7 +9,7 @@ local floaterm_custom_kill = function (id)
     vim.cmd("FloatermToggle")
 end
 
-vim.api.nvim_create_autocmd({ "VimLeavePre "}, {
+vim.api.nvim_create_autocmd({ "VimLeavePre"}, {
     pattern = "*",
     callback = function()
         local ids = vim.fn["floaterm#buflist#gather"]()
