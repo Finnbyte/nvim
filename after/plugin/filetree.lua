@@ -131,6 +131,6 @@ local lir = function()
 
 end
 
-fern()
---lir()
+--fern()
+lir()
 -- telescope_file_browser()
