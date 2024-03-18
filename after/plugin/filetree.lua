@@ -59,6 +59,13 @@ local telescope_file_browser = function()
     Map("n", "<leader>pl", function() extensions.file_browser.file_browser({ dir_icon="DIR", path=string.format("%s/%s", vim.fn.stdpath("data"), "site/pack/packer/start")}) end, { noremap = true })
 end
 
+local netrw = function()
+    Map("n", "<leader>.", function() vim.cmd.Ex() end, { noremap = true })
+
+    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Ex({ args = { vim.fn.stdpath("config") }}) end, {})
+    vim.api.nvim_create_user_command("Data", function() vim.cmd.Ex({ args = { vim.fn.stdpath("data") }}) end, {})
+end
+
 local lir = function()
     local actions = require'lir.actions'
     local mark_actions = require 'lir.mark.actions'
@@ -132,5 +139,6 @@ local lir = function()
 end
 
 --fern()
-lir()
+--lir()
+netrw()
 -- telescope_file_browser()
