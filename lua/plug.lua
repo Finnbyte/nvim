@@ -77,9 +77,10 @@ require("packer").startup({
         use { "tpope/vim-fugitive" }
         use { "lewis6991/gitsigns.nvim" }
 
-        -- File browser(s)
-        use { "lambdalisue/fern.vim" }
-        use { "tamago324/lir.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
+        -- netrw improved
+        use { "tpope/vim-vinegar" }
+        -- use { "lambdalisue/fern.vim" }
+        -- use { "tamago324/lir.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
 
         -- Which key
         use { "folke/which-key.nvim" }
