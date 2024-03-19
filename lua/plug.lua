@@ -53,6 +53,7 @@ require("packer").startup({
         use { "onsails/lspkind.nvim" }
         use { "folke/trouble.nvim" }
         use { "ray-x/lsp_signature.nvim" }
+        use { "mfussenegger/nvim-jdtls" } -- Java
 
         -- Mini.nvim (Extremely good collections of standalone functionalities)
         use { 'echasnovski/mini.nvim' }
