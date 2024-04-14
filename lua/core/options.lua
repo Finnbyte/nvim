@@ -4,6 +4,9 @@ local opt = vim.opt
 local g = vim.g
 local o = vim.o
 
+-- Leader key is Space
+vim.g.mapleader = ' '
+
 -- Line numbers (basically do hybrid)
 opt.rnu = true
 opt.nu = true
@@ -58,6 +61,7 @@ end
 opt.wrap = true -- Wrap text when as long as width of window
 opt.showmatch = true -- Highlight matching parenthesis
 opt.ic = true -- Ignore lowercase for the whole pattern
+opt.hlsearch = false
 opt.incsearch = true -- Incremental search
 opt.linebreak = true -- Wrap on word boundary
 opt.history = 1000 -- Remember N lines in history
@@ -72,5 +76,3 @@ opt.timeoutlen = 700 -- Faster timeout length
 --     g.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 -- end
 
--- opt.colorcolumn="120"
--- -- set synmaxcol=200  " ?

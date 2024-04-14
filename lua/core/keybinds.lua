@@ -12,15 +12,12 @@ function Unmap(mode, bind)
 	vim.api.nvim_del_keyMap(mode, bind)
 end
 
-vim.g.mapleader = ' ' -- Map leader key to space
-
 Map({"n", "v"}, "<C-p>", function ()
   vim.cmd.cd("%:p:h")
   print(string.format("New CWD: %s", vim.fn.getcwd()))
 end, "Set CWD to current file")
 
 Map('n', '<F1>', ':set rnu!<CR>') -- toggle relative line numbers
-Map("n", "<F2>", ":nohlsearch<CR>") -- Disable highlighted entries
 Map('n', '<F3>', ':set wrap!<CR>') -- toggle wrap 
 
 Map("n", "0", "^")
