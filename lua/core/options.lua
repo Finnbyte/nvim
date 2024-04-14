@@ -4,6 +4,9 @@ local opt = vim.opt
 local g = vim.g
 local o = vim.o
 
+-- Leader key is Space
+vim.g.mapleader = ' '
+
 -- Line numbers (basically do hybrid)
 opt.rnu = true
 opt.nu = true
@@ -72,5 +75,3 @@ opt.timeoutlen = 700 -- Faster timeout length
 --     g.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 -- end
 
--- opt.colorcolumn="120"
--- -- set synmaxcol=200  " ?
