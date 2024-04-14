@@ -61,6 +61,7 @@ end
 opt.wrap = true -- Wrap text when as long as width of window
 opt.showmatch = true -- Highlight matching parenthesis
 opt.ic = true -- Ignore lowercase for the whole pattern
+opt.hlsearch = false
 opt.incsearch = true -- Incremental search
 opt.linebreak = true -- Wrap on word boundary
 opt.history = 1000 -- Remember N lines in history

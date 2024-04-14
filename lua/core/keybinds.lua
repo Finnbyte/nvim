@@ -18,7 +18,6 @@ Map({"n", "v"}, "<C-p>", function ()
 end, "Set CWD to current file")
 
 Map('n', '<F1>', ':set rnu!<CR>') -- toggle relative line numbers
-Map("n", "<F2>", ":nohlsearch<CR>") -- Disable highlighted entries
 Map('n', '<F3>', ':set wrap!<CR>') -- toggle wrap 
 
 Map("n", "0", "^")
