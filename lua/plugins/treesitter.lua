@@ -32,6 +32,7 @@ local M = {
             "rust",
         },
         sync_install = false,
+        auto_install = true,
         additional_vim_regex_highlighting = false,
         incremental_selection = {
             enable = true,
