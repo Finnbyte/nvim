@@ -11,7 +11,7 @@ local M = {
 }
 
 function M.config()
-    vim.opt.completeopt = { "menu", "menuone", "noselect" }-- Make cmp better? Or required? Dunno.
+    vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
     local has_words_before = function()
         unpack = unpack or table.unpack
