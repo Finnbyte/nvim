@@ -9,6 +9,7 @@ function M.config()
     require("mini.tabline").setup({
         show_icons = false
     })
+    require("mini.ai").setup()
     require("mini.misc").setup()
     require("mini.indentscope").setup()
     require("mini.statusline").setup({
