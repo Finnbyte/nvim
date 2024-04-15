@@ -11,6 +11,8 @@ local M = {
             "c",
             "diff",
             "html",
+            "help",
+            "go",
             "javascript",
             "jsdoc",
             "json",
