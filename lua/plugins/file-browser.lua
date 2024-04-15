@@ -19,7 +19,17 @@ local function vinegar()
 end
 
 local function oil()
-    require("oil").setup()
+    require("oil").setup({
+        columns = {
+            -- "icon",
+            "permissions",
+            "size",
+            "mtime",
+        },
+        keymaps = {
+            ["cd"] = "actions.cd"
+        }
+    })
     Map("n", "<leader>.", function() vim.cmd.Oil() end, { noremap = true })
     Map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Oil({ args = { vim.fn.stdpath("config") }}) end, {})
