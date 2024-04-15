@@ -1,7 +1,7 @@
 local M = {
     "williamboman/mason-lspconfig.nvim",
     event = "BufReadPre",
-    dependencies = { "neovim/nvim-lspconfig" }
+    dependencies = { "neovim/nvim-lspconfig", "ray-x/lsp_signature.nvim" }
 }
 
 function M.config()
@@ -30,7 +30,7 @@ function M.config()
     local builtin = require("telescope.builtin")
     local on_attach = function(client, bufnr)
         -- Enable signatures
-        require "lsp_signature".on_attach(signature_setup, bufnr)
+        require("lsp_signature").on_attach({}, bufnr)
 
         -- Mappings when LSP has connected to a client
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
