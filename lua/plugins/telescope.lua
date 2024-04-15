@@ -20,7 +20,6 @@ function M.config()
         },
     }
 
-    -- Handle builtins
     local builtin = require('telescope.builtin')
     Map("n", "<leader>f,", function()
         local success = pcall(builtin.git_files)
@@ -30,8 +29,8 @@ function M.config()
     end)
     Map("n", "<leader>f.", builtin.find_files)
     Map("n", "<leader>fr", builtin.oldfiles)
-    Map("n", "<leader>fg", function() builtin.live_grep() end)
-    Map("n", "<leader>/", function() builtin.live_grep({ search_dirs = { vim.fn.expand("%:p")}}) end)
+    Map("n", "<leader>fg", builtin.live_grep, "Grep text in current working directory")
+    Map("n", "<leader>/", function() builtin.live_grep({ search_dirs = { vim.fn.expand("%:p")}}) end, "Grep text in current file")
     Map("n", "<leader><leader>", builtin.buffers)
     Map("n", "<leader>h", builtin.help_tags)
     Map("n", "<leader>:", builtin.commands)
