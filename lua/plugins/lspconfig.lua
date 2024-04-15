@@ -22,36 +22,32 @@ function M.config()
 
     -- Mappings
     local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
     local builtin = require("telescope.builtin")
     local on_attach = function(client, bufnr)
         -- Enable signatures
         require("lsp_signature").on_attach({}, bufnr)
 
-        -- Mappings when LSP has connected to a client
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set('n', 'gr', builtin.lsp_references, bufopts)
-        vim.keymap.set('n', '<leader>sd', builtin.lsp_document_symbols, bufopts)
-        vim.keymap.set('n', '<leader>sw', builtin.lsp_workspace_symbols, bufopts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-        vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-        vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-        vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format { async = true } end, bufopts)
-    end
+        local map = function(keys, func, desc)
+            vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. (desc or "No info") })
+        end
 
-    require'lspconfig'.dartls.setup({ on_attach = on_attach })
+        map('K', vim.lsp.buf.hover, "")
+        map('gD', vim.lsp.buf.declaration, "")
+        map('gd', require('telescope.builtin').lsp_definitions, "")
+        map('gr', require('telescope.builtin').lsp_references, "")
+        map('gI', require('telescope.builtin').lsp_implementations, "")
+        map('<leader>D', require('telescope.builtin').lsp_type_definitions, "")
+        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, "")
+        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, "")
+        map('<leader>rn', vim.lsp.buf.rename, "")
+        map('<leader>ff', function() vim.lsp.buf.format { async = true } end, "")
+        map('<leader>ca', vim.lsp.buf.code_action, "")
+    end
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities() -- Integrate cmp with LSP
     require("mason-lspconfig").setup_handlers {
@@ -69,6 +65,9 @@ function M.config()
         end
     }
 end
+        require("lspconfig").dartls.setup({ on_attach = on_attach })
 
-return M
+    end
+
+    return M
 
