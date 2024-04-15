@@ -59,12 +59,12 @@ function M.config()
         end,
         -- override for lua server
         ["luau_lsp"] = function()
-            require("lspconfig").luau_lsp.setup { settings = { Lua = {
+            require("lspconfig").lua_ls.setup { settings = { Lua = {
                 workspace = { checkThirdParty = false },
                 diagnostics = { globals = { 'vim', 'Map' } } } } } -- don't complain about vim
-        end
-    }
-end
+            end
+        }
+
         require("lspconfig").dartls.setup({ on_attach = on_attach })
 
     end
