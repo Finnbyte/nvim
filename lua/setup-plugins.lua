@@ -15,11 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
   defaults = { lazy = true, version = "*" },
   ui = { wrap = "true" },
-  checker = { enabled = true },
-  change_detection = {
-    enabled = true,
-    notify = true
-  },
   debug = false,
   performance = {
     rtp = {
@@ -33,6 +28,7 @@ require("lazy").setup("plugins", {
         "tutor",
         "zipPlugin",
       },
+    checker = { enabled = false },
     },
   },
 })
