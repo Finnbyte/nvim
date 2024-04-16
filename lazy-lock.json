@@ -21,6 +21,6 @@
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "rose-pine": { "branch": "main", "commit": "14b371fb783a8cfdade04544fb782f0bb6f7c904" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
-  "tokyonight": { "branch": "main", "commit": "67c6050e1ca41260c919236a098ba278472c7520" },
+  "tokyonight.nvim": { "branch": "main", "commit": "67c6050e1ca41260c919236a098ba278472c7520" },
   "vinegar": { "branch": "master", "commit": "ca222fb9425fc49aae7d2a185917b00de7980667" }
 }
