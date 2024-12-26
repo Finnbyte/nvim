@@ -9,7 +9,7 @@ function M.config()
         ensure_installed = {
             "html",
             "cssls",
-            "tsserver",
+            "ts_ls",
             "eslint",
             "lua_ls",
             "pyright",
