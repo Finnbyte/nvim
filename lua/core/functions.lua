@@ -1,14 +1,13 @@
 function Map(mode, shortcut, command, desc)
-  desc = desc or nil 
-  vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, desc = desc})
+    vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, desc = "" })
 end
 
 function BufMap(mode, shortcut, command)
-  vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, buffer = 0 })
+    vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, buffer = 0 })
 end
 
 function Unmap(mode, bind)
-	vim.api.nvim_del_keyMap(mode, bind)
+    vim.api.nvim_del_keyMap(mode, bind)
 end
 
 function ChangeBgColor(t)
@@ -25,6 +24,8 @@ function CheckPowerPlan()
     local powerPlanName = output:match("%((.-)%)") -- Use regex to get name from parenthesis
 
     if powerPlanName:lower() ~= "high performance" then
-        print(string.format("WARNING: Your computer uses '%s' instead of High performance powerplan.\nConsider using 'High performance' for maximum performance and enjoyment.\n", powerPlanName))
+        print(string.format(
+            "WARNING: Your computer uses '%s' instead of High performance powerplan.\nConsider using 'High performance' for maximum performance and enjoyment.\n",
+            powerPlanName))
     end
 end

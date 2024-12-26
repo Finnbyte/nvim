@@ -24,6 +24,8 @@ function M.config()
     local opts = { noremap = true, silent = true }
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
@@ -51,7 +53,7 @@ function M.config()
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities() -- Integrate cmp with LSP
     require("mason-lspconfig").setup_handlers {
-        function(server_name) -- global handler
+        function(server_name)                                           -- global handler
             require("lspconfig")[server_name].setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
@@ -62,12 +64,10 @@ function M.config()
             require("lspconfig").lua_ls.setup { settings = { Lua = {
                 workspace = { checkThirdParty = false },
                 diagnostics = { globals = { 'vim', 'Map' } } } } } -- don't complain about vim
-            end
-        }
+        end
+    }
 
-        require("lspconfig").dartls.setup({ on_attach = on_attach })
+    require("lspconfig").dartls.setup({ on_attach = on_attach })
+end
 
-    end
-
-    return M
-
+return M
