@@ -42,9 +42,21 @@ local M = {
         event = "VimEnter",
         config = function(_, _)
             require("tokyonight").setup(tokyonightPalette)
-            vim.cmd.colorscheme("tokyonight")
+        end
+    },
+    {
+        "neanias/everforest-nvim",
+        lazy = false,
+        config = function()
+            require("everforest").setup({
+                ---Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
+                ---Default is "medium".
+                background = "hard",
+            })
+            vim.cmd.colorscheme("everforest")
         end
     }
 }
+
 
 return M
