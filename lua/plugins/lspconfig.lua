@@ -4,6 +4,30 @@ local M = {
     dependencies = { "neovim/nvim-lspconfig", "ray-x/lsp_signature.nvim" }
 }
 
+My_on_attach = function(client, bufnr)
+    print("On attached!!!")
+    -- Enable signatures
+
+    -- local map = function(keys, func, desc)
+    --     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. (desc or "No info") })
+    -- end
+    --
+    vim.keymap.set("n", 'K', vim.lsp.buf.hover)
+    vim.keymap.set("n", 'gD', vim.lsp.buf.declaration)
+    vim.keymap.set("n", 'gd', require('telescope.builtin').lsp_definitions)
+    vim.keymap.set("n", 'gr', require('telescope.builtin').lsp_references)
+    vim.keymap.set("n", 'gI', require('telescope.builtin').lsp_implementations)
+    vim.keymap.set("n", '<leader>D', require('telescope.builtin').lsp_type_definitions)
+    vim.keymap.set("n", '<leader>ds', require('telescope.builtin').lsp_document_symbols)
+    vim.keymap.set("n", '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+    vim.keymap.set("n", '<leader>rn', function() vim.lsp.buf.rename() end)
+    vim.keymap.set("n", '<leader>ff', function() vim.lsp.buf.format { async = true } end)
+    vim.keymap.set("n", '<leader>ca', function()
+        print("yeyy")
+        vim.lsp.buf.code_action()
+    end)
+end
+
 function M.config()
     require("mason-lspconfig").setup {
         ensure_installed = {
@@ -28,34 +52,29 @@ function M.config()
     vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+    vim.keymap.set("n", 'K', vim.lsp.buf.hover)
+    vim.keymap.set("n", 'gD', vim.lsp.buf.declaration)
+    vim.keymap.set("n", 'gd', require('telescope.builtin').lsp_definitions)
+    vim.keymap.set("n", 'gr', require('telescope.builtin').lsp_references)
+    vim.keymap.set("n", 'gI', require('telescope.builtin').lsp_implementations)
+    vim.keymap.set("n", '<leader>D', require('telescope.builtin').lsp_type_definitions)
+    vim.keymap.set("n", '<leader>ds', require('telescope.builtin').lsp_document_symbols)
+    vim.keymap.set("n", '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+    vim.keymap.set("n", '<leader>rn', function() vim.lsp.buf.rename() end)
+    vim.keymap.set("n", '<leader>ff', function() vim.lsp.buf.format { async = true } end)
+    vim.keymap.set("n", '<leader>ca', function()
+        print("yeyy")
+        vim.lsp.buf.code_action()
+    end)
 
     local builtin = require("telescope.builtin")
-    local on_attach = function(client, bufnr)
-        -- Enable signatures
-        require("lsp_signature").on_attach({}, bufnr)
 
-        local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. (desc or "No info") })
-        end
-
-        map('K', vim.lsp.buf.hover, "")
-        map('gD', vim.lsp.buf.declaration, "")
-        map('gd', require('telescope.builtin').lsp_definitions, "")
-        map('gr', require('telescope.builtin').lsp_references, "")
-        map('gI', require('telescope.builtin').lsp_implementations, "")
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, "")
-        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, "")
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, "")
-        map('<leader>rn', vim.lsp.buf.rename, "")
-        map('<leader>ff', function() vim.lsp.buf.format { async = true } end, "")
-        map('<leader>ca', vim.lsp.buf.code_action, "")
-    end
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities() -- Integrate cmp with LSP
     require("mason-lspconfig").setup_handlers {
         function(server_name)                                           -- global handler
             require("lspconfig")[server_name].setup {
-                on_attach = on_attach,
+                on_attach = My_on_attach,
                 capabilities = capabilities,
             }
         end,
@@ -66,8 +85,6 @@ function M.config()
                 diagnostics = { globals = { 'vim', 'Map' } } } } } -- don't complain about vim
         end
     }
-
-    require("lspconfig").dartls.setup({ on_attach = on_attach })
 end
 
 return M

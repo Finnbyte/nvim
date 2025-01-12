@@ -5,7 +5,11 @@ local M = {
         'nvim-lua/plenary.nvim',
         'stevearc/dressing.nvim', -- optional for vim.ui.select
     },
-    config = true,
+    opts = {
+        lsp = {
+            on_attach = My_on_attach
+        }
+    }
 }
 
 return M
