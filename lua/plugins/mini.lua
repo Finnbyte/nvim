@@ -10,6 +10,7 @@ function M.config()
         show_icons = false
     })
     require("mini.ai").setup()
+    require("mini.completion").setup()
     require("mini.misc").setup()
     require("mini.indentscope").setup()
     require("mini.statusline").setup({
@@ -18,10 +19,10 @@ function M.config()
     local hipatterns = require("mini.hipatterns")
     hipatterns.setup({
         highlighters = {
-            fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-            hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
-            todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
-            note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
+            fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+            hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+            todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+            note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
 
             -- Highlight hex color strings (`#rrggbb`) using that color
             hex_color = hipatterns.gen_highlighter.hex_color(),
@@ -49,16 +50,16 @@ function M.config()
     })
     require("mini.surround").setup({
         mappings = {
-            add = 'ys', -- Add surrounding in Normal and Visual modes
-            delete = 'ds', -- Delete surrounding
-            replace = 'cs', -- Replace surrounding
-            find = 'ysf', -- Find surrounding (to the right)
-            find_left = 'ysF', -- Find surrounding (to the left)
-            highlight = 'ysh', -- Highlight surrounding
+            add = 'ys',             -- Add surrounding in Normal and Visual modes
+            delete = 'ds',          -- Delete surrounding
+            replace = 'cs',         -- Replace surrounding
+            find = 'ysf',           -- Find surrounding (to the right)
+            find_left = 'ysF',      -- Find surrounding (to the left)
+            highlight = 'ysh',      -- Highlight surrounding
             update_n_lines = 'ysn', -- Update `n_lines`
 
-            suffix_last = 'l', -- Suffix to search with "prev" method
-            suffix_next = 'n', -- Suffix to search with "next" method
+            suffix_last = 'l',      -- Suffix to search with "prev" method
+            suffix_next = 'n',      -- Suffix to search with "next" method
         }
     })
     require('mini.comment').setup({

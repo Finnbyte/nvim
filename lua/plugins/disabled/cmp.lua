@@ -20,7 +20,7 @@ function M.config()
     end
 
     local luasnip = require("luasnip")
-    local cmp = require("cmp")
+    local cmp = require("lua.plugins.disabled.cmp")
 
     cmp.setup({
         formatting = {},
@@ -37,7 +37,7 @@ function M.config()
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                    -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
+                    -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
                     -- they way you will only jump inside the snippet region
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
@@ -91,4 +91,3 @@ function M.config()
 end
 
 return M
-
