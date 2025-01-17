@@ -86,8 +86,8 @@ function M.config()
             -- After successful commenting. Does nothing by default.
             post = function() end,
         },
+        require("mini.git")
     })
 end
 
 return M
-
