@@ -70,7 +70,7 @@ function M.config()
     local builtin = require("telescope.builtin")
 
 
-    local capabilities = require('cmp_nvim_lsp').default_capabilities() -- Integrate cmp with LSP
+    local capabilities = function() end
     require("mason-lspconfig").setup_handlers {
         function(server_name)                                           -- global handler
             require("lspconfig")[server_name].setup {

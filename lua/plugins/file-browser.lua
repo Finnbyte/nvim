@@ -27,7 +27,8 @@ local function oil()
             "mtime",
         },
         keymaps = {
-            ["cd"] = "actions.cd"
+            ["cd"] = "actions.cd",
+            ["."] = { "actions.cd", mode = "n" },
         }
     })
     Map("n", "<leader>.", function() vim.cmd.Oil() end, { noremap = true })

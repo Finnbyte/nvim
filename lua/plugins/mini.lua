@@ -11,6 +11,14 @@ function M.config()
     })
     require("mini.ai").setup()
     require("mini.completion").setup()
+    -- vim.api.nvim_set_keymap("i", "<CR>", function()
+    --     print("jejej")jkkll
+    --     if vim.fn.pumvisible() ~= 0 then
+    --         return "<C-Y>"
+    --     else
+    --         return "<CR>"
+    --     end
+    -- end, { inoremap = true, silent = true })
     require("mini.misc").setup()
     require("mini.indentscope").setup()
     require("mini.statusline").setup({
@@ -87,8 +95,11 @@ function M.config()
             -- After successful commenting. Does nothing by default.
             post = function() end,
         },
-        require("mini.git")
     })
+    require("mini.git").setup()
+
+    -- Flashy plugins
+    require("mini.icons").setup()
 end
 
 return M

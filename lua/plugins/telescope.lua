@@ -28,6 +28,7 @@ function M.config()
         end
     end)
     Map("n", "<leader>f.", builtin.find_files)
+    Map("n", "<leader>f:", function() builtin.find_files() end)
     Map("n", "<leader>fr", builtin.oldfiles)
     Map("n", "<leader>fg", builtin.live_grep, "Grep text in current working directory")
     Map("n", "<leader>/", function() builtin.live_grep({ search_dirs = { vim.fn.expand("%:p") } }) end,
