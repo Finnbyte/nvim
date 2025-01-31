@@ -7,15 +7,15 @@ local M = {
     {
         "stevearc/oil.nvim",
         lazy = false,
-        dependencies = { "nvim-tree/nvim-web-devicons" }, -- Optional 
+        dependencies = { "nvim-tree/nvim-web-devicons" }, -- Optional
     }
 }
 
 local function vinegar()
-    Map("n", "<leader>.", function() vim.cmd.Ex() end, { noremap = true })
+    vim.keymap.set("n", "<leader>.", function() vim.cmd.Ex() end, { noremap = true })
 
-    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Ex({ args = { vim.fn.stdpath("config") }}) end, {})
-    vim.api.nvim_create_user_command("Data", function() vim.cmd.Ex({ args = { vim.fn.stdpath("data") }}) end, {})
+    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Ex({ args = { vim.fn.stdpath("config") } }) end, {})
+    vim.api.nvim_create_user_command("Data", function() vim.cmd.Ex({ args = { vim.fn.stdpath("data") } }) end, {})
 end
 
 local function oil()
@@ -31,10 +31,10 @@ local function oil()
             ["."] = { "actions.cd", mode = "n" },
         }
     })
-    Map("n", "<leader>.", function() vim.cmd.Oil() end, { noremap = true })
-    Map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Oil({ args = { vim.fn.stdpath("config") }}) end, {})
-    vim.api.nvim_create_user_command("Data", function() vim.cmd.Oil({ args = { vim.fn.stdpath("data") }}) end, {})
+    vim.keymap.set("n", "<leader>.", function() vim.cmd.Oil() end, { noremap = true })
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    vim.api.nvim_create_user_command("Cfg", function() vim.cmd.Oil({ args = { vim.fn.stdpath("config") } }) end, {})
+    vim.api.nvim_create_user_command("Data", function() vim.cmd.Oil({ args = { vim.fn.stdpath("data") } }) end, {})
 end
 
 
@@ -44,4 +44,3 @@ end
 
 
 return M
-

@@ -55,7 +55,17 @@ local M = {
             },
         },
     },
+    {
+        "HiPhish/nvim-ts-rainbow2",
+        event = "BufReadPost",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                rainbow = {
+                    enable = true
+                }
+            })
+        end
+    }
 }
 
 return M
-
