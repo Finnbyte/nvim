@@ -1,10 +1,8 @@
 local M = {
-    "andweeb/presence.nvim"
+    "andweeb/presence.nvim",
+    config = function()
+        require("presence").setup()
+    end
 }
 
-function M.config()
-    require("presence").setup()
-end
-
 return M
-
