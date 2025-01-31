@@ -10,15 +10,6 @@ function M.config()
         show_icons = false
     })
     require("mini.ai").setup()
-    require("mini.completion").setup()
-    -- vim.api.nvim_set_keymap("i", "<CR>", function()
-    --     print("jejej")jkkll
-    --     if vim.fn.pumvisible() ~= 0 then
-    --         return "<C-Y>"
-    --     else
-    --         return "<CR>"
-    --     end
-    -- end, { inoremap = true, silent = true })
     require("mini.misc").setup()
     require("mini.indentscope").setup()
     require("mini.statusline").setup({
