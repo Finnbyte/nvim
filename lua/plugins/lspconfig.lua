@@ -1,17 +1,22 @@
 local M = {
     "williamboman/mason-lspconfig.nvim",
     event = "BufReadPre",
-    dependencies = { "neovim/nvim-lspconfig", "ray-x/lsp_signature.nvim" }
+    dependencies = {
+        { "neovim/nvim-lspconfig" },
+        { "ray-x/lsp_signature.nvim" },
+        {
+            "folke/lazydev.nvim",
+            ft = "lua", -- only load on lua files
+            opts = {
+                library = {
+                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                },
+            },
+        },
+    }
 }
 
 My_on_attach = function(client, bufnr)
-    print("On attached!!!")
-    -- Enable signatures
-
-    -- local map = function(keys, func, desc)
-    --     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. (desc or "No info") })
-    -- end
-    --
     vim.keymap.set("n", 'K', vim.lsp.buf.hover)
     vim.keymap.set("n", 'gD', vim.lsp.buf.declaration)
     vim.keymap.set("n", 'gd', require('telescope.builtin').lsp_definitions)
@@ -22,10 +27,7 @@ My_on_attach = function(client, bufnr)
     vim.keymap.set("n", '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols)
     vim.keymap.set("n", '<leader>rn', function() vim.lsp.buf.rename() end)
     vim.keymap.set("n", '<leader>ff', function() vim.lsp.buf.format { async = true } end)
-    vim.keymap.set("n", '<leader>ca', function()
-        print("yeyy")
-        vim.lsp.buf.code_action()
-    end)
+    vim.keymap.set("n", '<leader>ca', function() vim.lsp.buf.code_action() end)
 end
 
 function M.config()
@@ -67,23 +69,13 @@ function M.config()
         vim.lsp.buf.code_action()
     end)
 
-    local builtin = require("telescope.builtin")
-
-
-    local capabilities = function() end
     require("mason-lspconfig").setup_handlers {
-        function(server_name)                                           -- global handler
+        function(server_name) -- global handler
             require("lspconfig")[server_name].setup {
                 on_attach = My_on_attach,
-                capabilities = capabilities,
+                capabilities = require("blink.cmp").get_lsp_capabilities(),
             }
         end,
-        -- override for lua server
-        ["luau_lsp"] = function()
-            require("lspconfig").lua_ls.setup { settings = { Lua = {
-                workspace = { checkThirdParty = false },
-                diagnostics = { globals = { 'vim', 'Map' } } } } } -- don't complain about vim
-        end
     }
 end
 
