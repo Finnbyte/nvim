@@ -35,7 +35,3 @@ Map("n", "<C-h>", "<C-w>h")
 Map("n", "<C-j>", "<C-w>j")
 Map("n", "<C-k>", "<C-w>k")
 Map("n", "<C-l>", "<C-w>l")
-
-vim.keymap.set("i", "<Return>",
-    function() if vim.fn.pumvisible() ~= 0 then return "<C-y>" else return "<CR>" end end,
-    { replace_keycodes = true, noremap = true, expr = true })
