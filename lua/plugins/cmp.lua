@@ -2,9 +2,7 @@ local M = {
     'saghen/blink.cmp',
     event = "BufReadPre",
     dependencies = 'rafamadriz/friendly-snippets',
-
-    -- use a release tag to download pre-built binaries
-    version = '*',
+    tag = "0.11.0",
     opts = {
         keymap = { preset = 'default' },
         appearance = {
