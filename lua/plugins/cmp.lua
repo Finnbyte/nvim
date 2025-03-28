@@ -1,9 +1,10 @@
 local M = {
     'saghen/blink.cmp',
     event = "BufReadPre",
-    dependencies = 'rafamadriz/friendly-snippets',
+    dependencies = { { 'rafamadriz/friendly-snippets' }, { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
     tag = "0.11.0",
     opts = {
+        snippets = { preset = "luasnip" },
         keymap = { preset = 'default' },
         appearance = {
             use_nvim_cmp_as_default = true,
