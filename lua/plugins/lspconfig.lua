@@ -64,10 +64,7 @@ function M.config()
     vim.keymap.set("n", '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols)
     vim.keymap.set("n", '<leader>rn', function() vim.lsp.buf.rename() end)
     vim.keymap.set("n", '<leader>ff', function() vim.lsp.buf.format { async = true } end)
-    vim.keymap.set("n", '<leader>ca', function()
-        print("yeyy")
-        vim.lsp.buf.code_action()
-    end)
+    vim.keymap.set("n", '<leader>ca', function() vim.lsp.buf.code_action() end)
 
     require("mason-lspconfig").setup_handlers {
         function(server_name) -- global handler
