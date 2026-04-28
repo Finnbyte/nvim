@@ -1,0 +1,6 @@
+-- vim.api.nvim_create_autocmd({"BufWrite"}, {
+--     pattern = {"*.html"},
+--     callback = function()
+--         vim.cmd("!tidy -m %")
+--     end
+-- })
