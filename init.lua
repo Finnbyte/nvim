@@ -94,6 +94,7 @@ vim.keymap.set({ "n" }, "<leader>w", ":write<CR>")
 -- # Plugins # --
 vim.pack.add({ 
     "https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/justinmk/vim-sneak",
     "https://github.com/tpope/vim-unimpaired",
     "https://github.com/tpope/vim-vinegar",
     "https://github.com/neanias/everforest-nvim",
@@ -108,9 +109,11 @@ vim.pack.add({
 vim.g.vimtex_view_method = "zathura"
 
 -- Lsp
-vim.lsp.enable({ "lua_ls", "eslint", "intelephense" })
+vim.lsp.enable({ "gopls", "cssls", "lua_ls", "eslint", "intelephense" })
 vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format) -- format via lsp
 vim.keymap.set({ "n", "v" }, "<leader>e", vim.diagnostic.open_float) -- format via lsp
+
+vim.lsp.config["lua_ls"].cmd = { "/home/elaitine/bin/lua-language-server" }
 
 -- Themes
 require("everforest").setup({
@@ -157,7 +160,7 @@ require("mini.hipatterns").setup({
     },
 })
 require("mini.move").setup()
-require("mini.jump").setup()
+-- require("mini.jump").setup()
 require("mini.pairs").setup({
     modes = { insert = true, command = false, terminal = false },
     mappings = {
