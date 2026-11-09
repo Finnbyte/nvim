@@ -74,6 +74,118 @@ function M.config()
             }
         end,
     }
+
+
+    require("lspconfig").efm.setup({
+        init_options = {
+            documentFormatting = true,
+            documentRangeFormatting = true,
+        },
+        filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "json",
+            "jsonc",
+            "css",
+            "scss",
+            "less",
+            "html",
+            "yaml",
+            "markdown",
+        },
+        settings = {
+            rootMarkers = {
+                ".git/",
+                "package.json",
+            },
+            languages = {
+                javascript = {
+                    {
+                        formatCommand = 'prettierd "${INPUT}"',
+                        formatStdin = true,
+                    },
+                },
+                javascriptreact = {
+                    {
+                        formatCommand = 'prettierd "${INPUT}"',
+                        formatStdin = true,
+                    },
+                },
+                typescript = {
+                    {
+                        formatCommand = 'prettierd "${INPUT}"',
+                        formatStdin = true,
+                    },
+                },
+                typescriptreact = {
+                    {
+                        formatCommand = 'prettierd "${INPUT}"',
+                        formatStdin = true,
+                    },
+                },
+                --     json = {
+                --         {
+                --             formatCommand = 'prettierd "${INPUT}"',
+                --             formatStdin = true,
+                --         },
+                --     },
+                --     jsonc = {
+                --         {
+                --             formatCommand = 'prettierd "${INPUT}"',
+                --             formatStdin = true,
+                --         },
+                --     },
+                --     css = {
+                --         {
+                --             formatCommand = 'prettierd "${INPUT}"',
+                --             formatStdin = true,
+                --         },
+                --     },
+                --     scss = {
+                --         {
+                --             formatCommand = 'prettierd "${INPUT}"',
+                --             formatStdin = true,
+                --         },
+                --     },
+                --     html = {
+                --         {
+                --             formatCommand = 'prettierd "${INPUT}"',
+                --             formatStdin = true,
+                --         },
+                --     },
+                --     yaml = {
+                --         {
+                --             formatCommand = 'prettierd "${INPUT}"',
+                --             formatStdin = true,
+                --         },
+                --     },
+                --     markdown = {
+                --         {
+                --             formatCommand = 'prettierd "${INPUT}"',
+                --             formatStdin = true,
+                --         },
+                --     },
+            },
+        },
+    })
+
+    local group = vim.api.nvim_create_augroup("PrettierFormat", { clear = true })
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        group = group,
+        callback = function(args)
+            vim.lsp.buf.format({
+                bufnr = args.buf,
+                async = false,
+                timeout_ms = 5000,
+                filter = function(client)
+                    return client.name == "efm"
+                end,
+            })
+        end,
+    })
 end
 
 return M

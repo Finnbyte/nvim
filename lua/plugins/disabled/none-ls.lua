@@ -1,0 +1,50 @@
+-- return {
+--     "nvimtools/none-ls.nvim",
+--     event = { "BufReadPre", "BufNewFile" },
+--     dependencies = {
+--         "nvim-lua/plenary.nvim",
+--     },
+--     config = function()
+--         local null_ls = require("null-ls")
+--
+--         null_ls.setup({
+--             sources = {
+--                 null_ls.builtins.formatting.prettierd,
+--             },
+--         })
+--
+--         -- Format on save only if a Prettier config exists
+--         local group = vim.api.nvim_create_augroup(
+--             "PrettierFormat",
+--             { clear = true }
+--         )
+--
+--         vim.api.nvim_create_autocmd("BufWritePre", {
+--             group = group,
+--             callback = function(args)
+--                 local root = vim.fs.root(args.buf, {
+--                     ".prettierrc",
+--                     ".prettierrc.json",
+--                     ".prettierrc.js",
+--                     ".prettierrc.cjs",
+--                     ".prettierrc.yaml",
+--                     ".prettierrc.yml",
+--                     "prettier.config.js",
+--                     "prettier.config.cjs",
+--                 })
+--
+--                 if not root then
+--                     return
+--                 end
+--
+--                 vim.lsp.buf.format({
+--                     bufnr = args.buf,
+--                     async = false,
+--                     filter = function(client)
+--                         return client.name == "null-ls"
+--                     end,
+--                 })
+--             end,
+--         })
+--     end,
+-- }
